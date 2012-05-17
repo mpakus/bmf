@@ -1,0 +1,42 @@
+<html>
+
+<head>
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+
+<style type="text/css">
+body{
+margin:0;
+padding:0;
+}
+.menu{
+	position: absolute;
+	width: 600px;
+	height: 180px;
+	background: gray;
+	top: -180px;
+	border-bottom: 10px solid red;
+}
+</style>
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+	M = $(".menu");
+	M.css( {left: $('body').width()/2 - 300 + "px"} );
+	M.toggle(
+		function() {
+			M.animate( {top:"0px"} );
+		},
+		function() {
+			M.animate( {top:"-180px"} );
+		}
+	);
+});
+
+</script>
+</head>
+
+<body>
+<div class="menu"></div>
+</bodY>
+</html>

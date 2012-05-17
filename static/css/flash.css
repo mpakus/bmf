@@ -1,0 +1,26 @@
+/* FLASH */
+#flash{
+	background: #EEE;
+	position: absolute;
+	z-index: 100;
+	top: 50px;
+	right: 3%;
+	padding: 20px;
+	font-weight:bold;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+#flash.error{
+	background: red;
+	color: white;
+}
+#flash.ok{
+	background: green;
+	color: white;
+}
+#flash.info{
+	background: #66CCEE;
+	color: black;
+}

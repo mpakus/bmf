@@ -1,0 +1,25 @@
+DirectoryIndex index.php
+
+#SetEnv "DACOM" "production"
+SetEnv "DACOM" "development"
+
+AddDefaultCharset utf-8
+
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^www.(\S+)$
+RewriteRule ^(.*)$ http://%1$1 [R,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !\.(swf)|(jpg)|(png)|(gif)$
+RewriteRule ^(.+) index.php/$1 [QSA,L]
+
+php_value "display_errors" "On"
+php_value "allow_call_time_pass_reference" "On"
+
+
+<IfModule mod_security.c>
+	SecFilterEngine Off
+	SecFilterScanPOST Off
+</IfModule>
