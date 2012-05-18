@@ -8,6 +8,7 @@
         <!--[if lt IE 9]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
+        <link rel="stylesheet" type="text/css" href="<?= site_url('static/css/base.css') ?>">
         <link rel="stylesheet" type="text/css" href="<?= site_url('static/themelight/styles.css') ?>">
         <link rel="stylesheet" type="text/css" href="<?= site_url('static/css/jquery.pnotify.default.css') ?>">
         <link rel="stylesheet" type="text/css" href="<?= site_url('static/css/flash.css') ?>">
@@ -40,7 +41,9 @@
 
             <div id="page">
                 <div id="content">
-					<?= $content ?>                    
+                    <div class="text">
+                        <?= $content ?>                    
+                    </div>
                 </div>
                 <div id="sidebar">
                 </div>

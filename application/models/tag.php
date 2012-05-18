@@ -9,7 +9,13 @@ class Tag extends MY_Model{
     public function __construct() {
         parent::__construct();
     }
-    
+
+    /**
+     * Save tag and relations between tag and object
+     * 
+     * @param type $post
+     * @return type 
+     */
     public function save( $post ){
         if( empty($post['id']) OR empty($post['tags']) ) return;
         $tags = explode(',', mb_strtolower($post['tags']) );
@@ -17,8 +23,6 @@ class Tag extends MY_Model{
             // delete all old relations
             $this->db->where('object_id', $post['id'])->where('object_type', $post['type'])->delete( $this->tagged_objects_table );
             foreach( $tags as $tag ){
-//                $tag    = mb_strcut( preg_replace('/^[A-Za-z0-9А-Яа-яёЁЭэ]/', '', $tag), 0, 64 );
-//                $tag    = preg_replace('/[^A-Za-z0-9А-Яа-яёЁЭэ]+/u', '', $tag);
                 $tag    = preg_replace('/\W+/u', '', $tag);
                 $tagged_objects = array();
                 if( empty($tag) ) continue;

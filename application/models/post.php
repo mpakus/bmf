@@ -3,7 +3,7 @@
 /**
  * Post model
  * 
- * @version
+ * @version $Id
  * @access ALL
  * @author Ibragimov "MpaK" Renat <info@mrak7.com>
  * @copyright Copyright (c) 2009-2012, AOmega.ru
@@ -21,6 +21,12 @@ class Post extends MY_Model {
         $this->type = blog_types();
     }
     
+    /**
+     * 
+     * 
+     * @param type $post
+     * @return type 
+     */
     public function save( $post ){
         if( empty($post[$this->pkey]) ) $post['added_at']   = now2mysql();
 
@@ -28,6 +34,7 @@ class Post extends MY_Model {
         
         // after that check tags, add them and link with our new post
         if( !empty($post['tags']) ) {
+            $post['type'] = blog_type('post');
             $post['tags'] = $this->tag->save( $post );
             parent::save( $post );
         }

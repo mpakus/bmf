@@ -24,7 +24,10 @@ function user_avatar( $user, $class='normal' ){
 
 function user_can_rule(){
     $user = CI()->user->profile();
-    if( empty($user['id']) OR ($user['banned'] != 0) ) redirect( 'user/login' );    
+    if( empty($user['id']) OR ($user['banned'] != 0) ) {
+        show_error( 'Увы и ах, у вас нет прав', 500 );
+//        redirect( 'user/login' );    
+    }
 }
 
 function user_is( $role ){

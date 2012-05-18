@@ -39,41 +39,19 @@
 */
 
 $route['default_controller'] = "blog";
-$route['404_override'] = '';
+$route['404_override']       = '';
 
 // hmvc user auth module
 
 $route['user/(:any)'] = "user/$1";
 
-$route['post/news(:any)'] = "post/news$1";
 
-//$route['post/destroy'] = "post/destroy";
+// BLOG
+$route['page/(:any)']             = "page/index/$1";
+$route['blog/tag/(:any)']         = "blog/tag/$1";
+$route['blog/(:num)-(:any).html'] = "blog/show/$1/$2";
+$route['blog/page/(:num)']        = "blog/news/$1";
 
-//$route['blog/(:num)/(:any).html'] = "blog/show/$1/$2";
-
-$route['blog/tag/(:any)'] = "blog/tag/$1";
-
-$route['page/(:any)'] = "page/index/$1";
-
-// NEWS
-$route['blog/news/(:num)/(:any).html'] = "blog/show/$1/$2";
-$route['blog/news']                    = "blog/news";
-$route['blog/news/page/(:num)']        = "blog/news/$1";
-
-// REVIEWS
-$route['blog/review/(:num)/(:any).html']  = "blog/show/$1/$2";
-$route['blog/reviews']                    = "blog/reviews";
-$route['blog/reviews/page/(:num)']        = "blog/reviews/$1";
-
-// VIDEO
-$route['blog/video/(:num)/(:any).html']  = "blog/show/$1/$2";
-$route['blog/videos']                    = "blog/videos";
-$route['blog/videos/page/(:num)']        = "blog/videos/$1";
-
-// PHOTO
-$route['blog/photo/(:num)/(:any).html']  = "blog/show/$1/$2";
-$route['blog/photos']                    = "blog/photos";
-$route['blog/photos/page/(:num)']        = "blog/photos/$1";
 
 
 /* End of file routes.php */

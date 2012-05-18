@@ -101,7 +101,10 @@ h1, h2, h3, h4, h5{
 -----------------------------------------------------*/
 header{
     background: #EEE;
-    padding: 15px;
+    padding: 30px;
+    position: relative;
+    display: block;
+    height: 100px;
 }
 header h1{
     font-size: 37px;
@@ -127,8 +130,16 @@ nav a:hover{
 #content{
     width: 80%;
 }
+.text{ padding: 30px; }
 
 #sidebar{
     float: right;
     width: 20%;
 }
+
+footer{
+    background: #000;
+    color: #FFF;
+    padding: 30px;
+}
+footer a{ color: #EEE; }
