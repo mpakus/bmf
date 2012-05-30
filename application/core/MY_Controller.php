@@ -1,7 +1,7 @@
 <?php
 error_reporting( E_ALL ^ E_NOTICE );
 
-class MY_Controller extends CI_Controller{
+class MY_Controller extends MX_Controller{
     protected
         $data     = array(),
         $settings = array(),

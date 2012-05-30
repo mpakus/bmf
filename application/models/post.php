@@ -50,8 +50,8 @@ class Post extends MY_Model {
      * @return type 
      */
     public function find($id = NULL, $limit = NULL, $from = NULL) {
-        $this->db->select( 't.*, te.*, u.id AS user_id, u.login, u.email, u.avatar, u.banned, u.role' )
-                ->join( $this->texts_table.' AS te', 't.id = te.post_id', 'LEFT' )
+        $this->db->select( 't.*, u.id AS user_id, u.login, u.email, u.avatar, u.banned, u.role' )
+//                ->join( $this->texts_table.' AS te', 't.id = te.post_id', 'LEFT' )
                 ->join( $this->users_table.' AS u', 't.user_id = u.id', 'LEFT' )
 //                ->order_by( 'added_at', 'DESC')
         ;

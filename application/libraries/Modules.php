@@ -117,8 +117,9 @@ class Modules
 	public static function load_file($file, $path, $type = 'other', $result = TRUE)	{
 		$file = str_replace(EXT, '', $file);		
 		$location = $path.$file.EXT;
-		
-		if ($type === 'other') {			
+		echo $location .'!!!';
+
+        if ($type === 'other') {			
 			if (class_exists($file, FALSE))	{
 				log_message('debug', "File already loaded: {$location}");				
 				return $result;

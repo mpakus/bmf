@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 19, 2012 at 02:29 AM
+-- Generation Time: May 31, 2012 at 01:26 AM
 -- Server version: 5.1.62
 -- PHP Version: 5.3.5-1ubuntu7.8
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `modules` (
   `name` varchar(32) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `post_id` (`post_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `modules`
@@ -81,7 +81,10 @@ CREATE TABLE IF NOT EXISTS `modules` (
 INSERT INTO `modules` (`id`, `post_id`, `ord`, `name`) VALUES
 (4, 1, 2, 'text'),
 (5, 1, 3, 'code'),
-(6, 1, 4, 'code');
+(6, 1, 4, 'code'),
+(7, 2, 1, 'text'),
+(8, 3, 1, 'text'),
+(9, 3, 2, 'code');
 
 -- --------------------------------------------------------
 
@@ -106,14 +109,16 @@ CREATE TABLE IF NOT EXISTS `posts` (
   KEY `user_id` (`user_id`),
   KEY `type_id` (`type`),
   KEY `deleted` (`deleted`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `posts`
 --
 
 INSERT INTO `posts` (`id`, `added_at`, `user_id`, `type`, `category_id`, `title`, `tags`, `rating`, `views`, `preview`, `link`, `deleted`) VALUES
-(1, '2012-05-19 01:16:01', 4, 1, 0, 'Первый пост в супер блоге', 'пост, блог, сообщение', 0, 0, '', '', 0);
+(1, '2012-05-19 01:16:01', 4, 1, 0, 'Первый пост в супер блоге', 'пост, блог, сообщение', 0, 0, '', '', 0),
+(2, '2012-05-28 16:12:58', 4, 1, 0, 'feefeerwe', 'rwerwerwer', 0, 0, '', '', 0),
+(3, '2012-05-30 13:40:54', 4, 1, 0, 'Супер топик', 'топик, хуй', 0, 0, '', '', 0);
 
 -- --------------------------------------------------------
 
@@ -138,7 +143,10 @@ INSERT INTO `tagged_objects` (`tag_id`, `object_id`, `object_type`) VALUES
 (2, 847, 1),
 (3, 1, 1),
 (4, 1, 1),
-(5, 1, 1);
+(5, 1, 1),
+(6, 2, 1),
+(7, 3, 1),
+(8, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -151,18 +159,21 @@ CREATE TABLE IF NOT EXISTS `tags` (
   `tag` varchar(64) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `tag` (`tag`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
 -- Dumping data for table `tags`
 --
 
 INSERT INTO `tags` (`id`, `tag`) VALUES
+(6, 'rwerwerwer'),
 (4, 'блог'),
 (3, 'пост'),
 (5, 'сообщение'),
 (1, 'тема'),
-(2, 'уно');
+(7, 'топик'),
+(2, 'уно'),
+(8, 'хуй');
 
 -- --------------------------------------------------------
 
@@ -171,12 +182,19 @@ INSERT INTO `tags` (`id`, `tag`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `texts` (
-  `post_id` int(10) NOT NULL,
+  `module_id` int(10) NOT NULL,
   `short` text NOT NULL,
   `full` text NOT NULL,
   `original` text NOT NULL,
-  PRIMARY KEY (`post_id`)
+  PRIMARY KEY (`module_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `texts`
+--
+
+INSERT INTO `texts` (`module_id`, `short`, `full`, `original`) VALUES
+(8, '', 'аывавыа ыавыа', '');
 
 -- --------------------------------------------------------
 
@@ -206,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`id`, `registered_at`, `logined_at`, `login`, `email`, `password`, `salt`, `avatar`, `rating`, `banned`, `role`) VALUES
 (1, '2012-04-17 21:07:00', '2012-05-09 21:44:55', 'MpaK', 'mpak_work@inbox.ru', '864ec5bef5768c4252ecd320ec4228478c2fd849', 'f6e09db4f6e0', '858de61cecafe0d532003deedf143781.jpg', 0, 0, 'user'),
 (2, '2012-04-17 21:39:21', '0000-00-00 00:00:00', 'MpaKus', 'mrak69@gmail.com', '6e736b8f4a8fc3e6c60261c822aaa106412fe420', 'a4d940f6279b', '', 0, 0, 'user'),
-(4, '2012-04-17 21:51:59', '2012-05-18 23:41:10', 'Admin', 'mrak69@gmail.com', '04b23fa8f205a446303e020252b7391323738ea7', '5a3b07273666', '72a13bcacac59c2fdfe6c650e2d1c1fb.gif', 0, 0, 'admin');
+(4, '2012-04-17 21:51:59', '2012-05-30 23:40:01', 'Admin', 'mrak69@gmail.com', '04b23fa8f205a446303e020252b7391323738ea7', '5a3b07273666', '72a13bcacac59c2fdfe6c650e2d1c1fb.gif', 0, 0, 'admin');
 
 -- --------------------------------------------------------
 

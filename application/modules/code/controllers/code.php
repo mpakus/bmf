@@ -1,15 +1,15 @@
 <?php
-class CodeController extends MX_Controller{
+class CodeController extends MY_Controller{
     
     public function __construct(){
         parent::__construct();
     }
     
     public function show(){
-       return "show"; 
+       return "show code"; 
     }
     
     public function form(){
-       return "form"; 
+       return "form for code"; 
     }
 }

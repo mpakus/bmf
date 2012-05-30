@@ -101,7 +101,7 @@ class Modules
 			self::load_file($class, $path);
 			
 			/* create and register the new controller */
-			$controller = ucfirst($class);	
+			$controller = ucfirst($class.'Controller');	
 			self::$registry[$alias] = new $controller($params);
 		}
 		
@@ -140,10 +140,10 @@ class Modules
 		$location = $path.$file.EXT;
 		
 		if ($type === 'other') {			
-			if (class_exists($file, FALSE))	{
-				log_message('debug', "File already loaded: {$location}");				
-				return $result;
-			}	
+//			if (class_exists($file, FALSE))	{
+//				log_message('debug', "File already loaded: {$location}");				
+//				return $result;
+//			}	
 			include_once $location;
 		} else { 
 		

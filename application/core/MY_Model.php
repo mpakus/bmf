@@ -143,7 +143,7 @@ class MY_Model extends CI_Model{
             foreach( $this->join as $j ) $this->db->join( $j['table'], $j['on'], $j['type'] );
 
 		if( !empty($id) ){
-			$this->db->where( 't.id', $id );
+			$this->db->where( 't.'.$this->pkey, $id );
 			$from	= 0;
 			$limit	= 1;
 		}

@@ -22,7 +22,17 @@
     <section id="modules">
         <ul>
         <? foreach( $modules as $module ){ ?>
-            <li><?= $module['name'] ?></li>
+            <li>
+                <div id="title_<?= $module['id']?>">
+                    <strong><?= $module['name'] ?></strong>
+                    <? if( $module['id'] != $module_id ){ ?>
+                        <?= anchor('post/form/'.$post['id'].'/'.$module['id'], 'Редактировать') ?>
+                    <? } ?>
+                </div>
+                <div id="module_<?= $module['id']?>">
+                    <?= $module['output'] ?>
+                </div>
+            </li>
         <? } ?>
         </ul>
     </section>
@@ -38,4 +48,4 @@
             <input type="submit" value="Добавить" />
         <?= form_close() ?>
     </section>
-<? } ?>
+<? } ?> 

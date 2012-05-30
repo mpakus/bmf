@@ -20,7 +20,7 @@ class PostController extends MY_Controller {
         parent::__construct('blog');
         // CHECK PRIVILEGIES!!!
         user_can_rule();
-        $this->load->model( array('post', 'tag', 'text', 'module') );
+        $this->load->model( array('post', 'tag', 'module') );
         $this->post->file_dir = $this->settings['previews_dir'];
     }
 
@@ -36,7 +36,7 @@ class PostController extends MY_Controller {
      * @return type 
      */
     public function form( $id='', $module_id='' ) {
-        $data = array();
+        $this->data['module_id'] = $module_id;
 
         if (!empty($id) AND empty($_POST)) {
             $this->data['post'] = $this->post->find($id, 1);
@@ -65,8 +65,7 @@ class PostController extends MY_Controller {
         if ($this->form_validation->run($this) === FALSE) {
             $this->data['modules_for_add'] = $this->settings['modules'];
             if( !empty($id) ){
-                $this->modules = $this->module->find_all_for_post( $id );
-                $this->data['modules'] = $this->modules;
+                $this->data['modules'] = $this->module->find_all_for_post( $id );
                 $this->call_modules( $id, $module_id );
             }
             $this->template->render_to('content', $this->view . 'form', $this->data);
@@ -81,6 +80,21 @@ class PostController extends MY_Controller {
             redirect( 'post/form/'.$post['id'] );
         }
         $this->draw();
+    }
+
+    /**
+     *
+     * @param type $post_id
+     * @param type $module_id
+     * @return type 
+     */
+    protected function call_modules( $post_id, $module_id='' ){
+        if( empty($this->data['modules']) ) return;
+        foreach( $this->data['modules'] as $i=>$module ){
+            $method = ($module['id'] == $module_id) ? 'form' : 'show';
+            $this->data['modules'][$i]['output'] = Modules::run( $module['name'].'/'.$method, $post_id, $module_id );           
+        }
+        return;
     }
 
     /**
@@ -110,18 +124,7 @@ class PostController extends MY_Controller {
         set_flash_ok( 'Отлично, новый модуль, давай заполним его' );
         redirect( 'post/form/'.$post_id.'/'.$module_id );
     }
-    
-    protected function call_modules( $post_id, $module_id='' ){
-        if( empty($this->modules) ) return;
-        foreach( $this->modules as $module ){
-            $method = ($module['id'] == $module_id) ? 'form' : 'show';
-            $this->data['modules_results'][] = array(
-                'id'     => $module['id'],
-                'result' => modules::run( $this->module['name'].'/'.$method )
-            );
-        }
-        return;
-    }
+
 
     /**
      * Check our request and keep in safe place TEXT information
