@@ -20,13 +20,18 @@
 
 <? if( !empty($post['id']) ){ ?>
     <section id="modules">
+        <ul>
+        <? foreach( $modules as $module ){ ?>
+            <li><?= $module['name'] ?></li>
+        <? } ?>
+        </ul>
     </section>
 
     <section id="add_module">
         <h1>Добавить новый блок</h1>
         <?= form_open( 'post/add_module/'.$post['id'], 'id="add_module_form' ) ?>
-            <select id="add_module_select" name="add_module[name]">
-                                                                                                                                                                                            <? foreach( $modules as $name=>$module ){ ?>
+            <select id="add_module_select" name="add_module[name]">                                                                                                                                                                                            
+            <? foreach( $modules_for_add as $name=>$module ){ ?>
                 <option value="<?= $name ?>"><?= $module['name'] ?></option>
             <? } ?>
             </select>

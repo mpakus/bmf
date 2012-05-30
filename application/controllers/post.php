@@ -12,7 +12,8 @@ class PostController extends MY_Controller {
 
     protected
         $view = 'post/',
-        $id   = NULL
+        $id   = NULL,
+        $modules = array()            
     ;
 
     public function __construct() {
@@ -44,6 +45,7 @@ class PostController extends MY_Controller {
             $post['id'] = $id;
             $this->data['data'] = $post;
         }
+
         $this->load->library('form_validation');
 
         $config = array(
@@ -61,8 +63,12 @@ class PostController extends MY_Controller {
         $this->form_validation->set_rules($config);
 
         if ($this->form_validation->run($this) === FALSE) {
-            $this->data['modules'] = $this->settings['modules'];
-            if( !empty($id) ) $this->call_modules( $id );            
+            $this->data['modules_for_add'] = $this->settings['modules'];
+            if( !empty($id) ){
+                $this->modules = $this->module->find_all_for_post( $id );
+                $this->data['modules'] = $this->modules;
+                $this->call_modules( $id, $module_id );
+            }
             $this->template->render_to('content', $this->view . 'form', $this->data);
         } else {
             $post['user_id'] = (integer) $this->current_user['id'];
@@ -105,8 +111,16 @@ class PostController extends MY_Controller {
         redirect( 'post/form/'.$post_id.'/'.$module_id );
     }
     
-    protected function call_modules( $id ){
-        
+    protected function call_modules( $post_id, $module_id='' ){
+        if( empty($this->modules) ) return;
+        foreach( $this->modules as $module ){
+            $method = ($module['id'] == $module_id) ? 'form' : 'show';
+            $this->data['modules_results'][] = array(
+                'id'     => $module['id'],
+                'result' => modules::run( $this->module['name'].'/'.$method )
+            );
+        }
+        return;
     }
 
     /**

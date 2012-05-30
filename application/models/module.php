@@ -25,8 +25,7 @@ class Module extends MY_Model {
      */
     public function add_new( $module ){
         $this->db->trans_start();
-        $this->db
-                ->select_max('ord')
+        $this->db->select_max('ord')
                 ->where('post_id', (integer)$module['post_id'])
         ;
         $res = $this->find( NULL, 1 );
@@ -35,6 +34,10 @@ class Module extends MY_Model {
         $id = $this->save( $module );
         $this->db->trans_complete();
         return $id;
+    }
+    
+    public function find_all_for_post( $post_id ){
+        return $this->where( 'post_id', $post_id )->find();
     }
 
 }
