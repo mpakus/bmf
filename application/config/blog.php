@@ -14,5 +14,8 @@ $config['blog']['modules'] = array(
     ),
     'photos' => array(
         'name' => 'Фотоальбом'
-    )
+    ),
+    'cut' => array(
+        'name' => 'Подкат'
+    ),
 );

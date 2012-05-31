@@ -67,13 +67,12 @@ function post_control( $post ){
     
     $type = array_search( $post['type'], blog_types() ); // now we have got 'news' key
     
-    if( user_is('admin') OR ($user['id'] == $post['user_id']) ){
-        ?>
-        <a href="<?= site_url( 'post/'.$type.'/'.$post['id'] ) ?>" class="edit ctrl"><span class="ui-icon ui-icon-pencil"></span> ред.</a>
-        <a href="#" class="delete ctrl" id="destroy-<?= $post['id'] ?>"><span class="ui-icon ui-icon-trash"></span> удал.</a>
-        <br class="cb" />
-        <?
-    }
+    if( user_is('admin') OR ($user['id'] == $post['user_id']) ){ ?>
+        <div class="btn-toolbar">
+        <a href="<?= site_url( 'post/form/'.$post['id'] ) ?>" class="btn btn-success "><i class="icon-pencil icon-white"></i> Редактировать</a>
+        <a href="#" class="btn btn-danger" id="destroy-<?= $post['id'] ?>"><i class="icon-trash icon-white"></i> Удалить</a>
+        </div>
+    <? }
 }
 
 function post_link( $post ){

@@ -16,48 +16,13 @@ class BlogController extends MY_Controller{
      * @param type $page 
      */
     public function index( $page=0 ){
-        $this->template->set_layout( 'layouts/index' );
-        $this->pagination( 'blog/index/page', $this->post->count_top_reviews_and_video() );
-        $this->data['posts'] = $this->post->find_top_reviews_and_video( $this->settings['post_per_page'], $page );
+//        $this->template->set_layout( 'layouts/index' );
+//        $this->pagination( 'blog/index/page', $this->post->count_top_reviews_and_video() );
+        $this->data['posts'] = $this->post->find_published( $this->settings['post_per_page'], $page );
         $this->template->render_to( 'content', $this->view.'index', $this->data );
         $this->draw();
     }    
 
-    /**
-     * Shows reviews list with pagination
-     * 
-     * @param type $page 
-     */
-    public function reviews( $page=0 ){
-        $this->pagination( 'blog/reviews/page', $this->post->count_reviews() );
-        $this->data['posts'] = $this->post->find_reviews( $this->settings['post_per_page'], $page );
-        $this->template->render_to( 'content', $this->view.'index', $this->data );
-        $this->draw();
-    }    
-
-    /**
-     * Show videos list with pagination
-     * 
-     * @param type $page 
-     */
-    public function videos( $page=0 ){
-        $this->pagination( 'blog/videos/page', $this->post->count_videos() );
-        $this->data['posts'] = $this->post->find_videos( $this->settings['post_per_page'], $page );
-        $this->template->render_to( 'content', $this->view.'index', $this->data );
-        $this->draw();
-    }  
-    
-    /**
-     *
-     * @param type $page 
-     */
-    public function photos( $page=0 ){
-        $this->pagination( 'blog/photos/page', $this->post->count_photos() );
-        $this->data['posts'] = $this->post->find_photos( $this->settings['post_per_page'], $page );
-        $this->template->render_to( 'content', $this->view.'index', $this->data );
-        $this->draw();
-    }     
-    
     /**
      * Create pagination 
      * 
@@ -89,8 +54,16 @@ class BlogController extends MY_Controller{
      * @param type $id
      * @param type $alias 
      */
-    public function show( $id, $alias ){
+    public function show2( $id, $alias ){
         $this->data['post']     = $this->post->where('deleted',0)->find( $id, 1 );
+        $this->load->helper( 'comment' );
+        $this->data['comments'] = $this->comment->find_for_post( $id );
+        $this->template->render_to( 'content', $this->view.'show', $this->data );
+        $this->draw();
+    }
+    
+    public function show( $id ){
+        $this->data['post'] = $this->post->find( $id, 1 );
         $this->load->helper( 'comment' );
         $this->data['comments'] = $this->comment->find_for_post( $id );
         $this->template->render_to( 'content', $this->view.'show', $this->data );

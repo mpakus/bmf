@@ -62,4 +62,14 @@
         <?= form_close() ?>
         </div>
     </div>
+
+<div class="row">
+    <div class="span12">
+        <div class="form-actions">
+            <a href="<?= site_url('post/publish/'.$post['id']) ?>" class="btn btn-success">Опубликовать</a>
+            <a href="<?= site_url('post/preview/'.$post['id']) ?>" class="btn" target="_blank">Предпросмотр</a>
+            <a href="<?= site_url('post/draft/'.$post['id']) ?>" class="btn btn-inverse">Сохранить в черновиках</a>
+        </div>
+    </div>
+</div>
 <? } ?>

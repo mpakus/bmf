@@ -1,38 +1,22 @@
-
 <?php
 //dump( $posts );
 if( empty($posts) ){
-    echo '<div class="post"><h3>В блог еще никто не написал</h3></div>';
+    echo '<h2>В блог еще никто не написал</h2>';
     return;
 }
-
-foreach( $posts as $post ){
-    post_do();
-    if( ($post['type'] == blog_typE('news')) OR ($post['type'] == blog_type('review')) ){
-    ?>
-    <p>
-        <?= $post['short'] ?> <a href="<?= post_link( $post ) ?>">Далее</a>
-    </p>
-    <?
-    }elseif( $post['type'] == blog_type('video') ){
-    ?>
-    <p>
-        <a href="<?= post_link( $post ) ?>"><?= video_preview( $post ) ?></a>
-    </p>
-    <?
-    }elseif( $post['type'] == blog_type('photo') ){
-    ?>
-    <p>
-        <?= $post['short'] ?>
-    </p>
-    <p>
-        <a href="<?= post_link( $post ) ?>"><img src="/files/posts/mini/<?= $post['preview'] ?>" alt="<?= form_prep($post['title']) ?>" /></a>
-    </p>
-    <?
-    }
-    post_end( $post );
-}
 ?>
+
+<div class="row">
+    <div class="span12">
+        <? foreach( $posts as $post ){ ?>
+            <h1><?= $post['title'] ?></h1>
+            <?= post_control($post) ?>
+            <?= $post['cut'] ?>
+            <a href="<?= site_url('blog/show/'.$post['id']) ?>" class="btn btn-info">Прочитать</a>
+            <hr/>
+        <? } ?>
+    </div>
+</div>
 
 <div id="pagingbar">
     <a href="#" class="up">Наверх</a>

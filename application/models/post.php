@@ -68,97 +68,15 @@ class Post extends MY_Model {
         return $this->find();
     }
     
-// For TOP POSTS    
-    /**
-     *
-     * @param type $limit
-     * @param type $page
-     * @return type 
-     */
-    public function find_top_reviews_and_video( $limit=NULL, $from=NULL ){
-        return $this->top_where()->find( NULL, $limit, $page );
+    public function find_published( $limit=NULL, $from=NULL ){
+        return $this->where_published()->find( NULL, $limit, $page );
     }
-    public function count_top_reviews_and_video(){
-        return $this->top_where()->count();
+    public function count_published(){
+        return $this->where_published()->count();
     }
-    protected function top_where(){
-        $type = blog_types();
-        $in = array( $type['review'], $type['video'] );
-        $this->db->where_in( 'type', $in )->where( 't.rating >=', 10 )->where('deleted',0)->order_by( 'added_at,t.rating' );
+    public function where_published(){
+        $this->db->where('deleted',0)->where('published',1)->order_by( 'added_at,t.rating' );
         return $this;
-    }
-    
-// For REVIEWS    
-    /**
-     *
-     * @param type $limit
-     * @param type $page
-     * @return type 
-     */
-    public function find_reviews( $limit=NULL, $page=NULL ){
-        return $this->reviews_where()->find( NULL, $limit, $page );
-    }
-    public function count_reviews(){
-        return $this->reviews_where()->count();
-    }
-    protected function reviews_where(){
-        $type = blog_types();
-        $this->db->where( 'type =', $type['review'] )->where('deleted',0)->order_by( 'added_at' ); 
-        return $this;
-    }  
-    
-    /**
-     * Find last limited added reviews
-     * @param type $limit
-     * @return type 
-     */
-    public function find_last_reviews( $limit ){
-        return $this->where('deleted',0)->where('type', blog_type('review'))->order_by('added_at')->find(NULL,$limit);
-    }
-    
-// For VIDEOS
-    /**
-     *
-     * @param type $limit
-     * @param type $page
-     * @return type 
-     */
-    public function find_videos( $limit=NULL, $page=NULL ){
-        return $this->videos_where()->find( NULL, $limit, $page );
-    }
-    public function count_videos(){
-        return $this->videos_where()->count();
-    }
-    protected function videos_where(){
-        $type = blog_types();
-        $this->db->where( 'type =', $type['video'] )->where('deleted',0)->order_by( 'added_at' ); 
-        return $this;
-    }
-    
-// For PHOTOS
-    /**
-     *
-     * @param type $limit
-     * @param type $page
-     * @return type 
-     */
-    public function find_photos( $limit=NULL, $page=NULL ){
-        return $this->photos_where()->find( NULL, $limit, $page );
-    }
-    public function count_photos(){
-        return $this->photos_where()->count();
-    }
-    protected function photos_where(){
-        $this->db->where( 'type =', blog_type('photo') )->where('deleted',0)->order_by( 'added_at' ); 
-        return $this;
-    }    
-    
-    /**
-     *
-     * @param type $limit 
-     */
-    public function top_news( $limit=15 ){
-        return $this->where( 'type', $this->type['news'] )->where('deleted',0)->order_by('added_at')->find( NULL, $limit );
     }
 
     /**

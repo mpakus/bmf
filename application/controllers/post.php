@@ -82,8 +82,49 @@ class PostController extends MY_Controller {
         $this->draw();
     }
 
+    /**
+     *
+     * @param type $post_id 
+     */
     public function publish( $post_id ){
-        
+        try{
+            $post = $this->make( $post_id );
+            $post['published'] = 1;
+            $this->post->save( $post );
+            set_flash_ok('Топик опубликован');
+            redirect('blog/show/'.$post_id);
+        }catch( Exception $e ){
+            set_flash_error( $e->getMessage() );
+            redirect( 'post/form/'.$post_id );
+        }
+    }
+    
+    /**
+     *
+     * @param type $post_id
+     * @return type 
+     */
+    public function make( $post_id ){
+        $current_user = current_user();
+        $post = $this->post->find( $post_id, 1 );
+        if( empty($post) ) throw new Exception('Такого топика у нас нет');
+        $post = array(
+            'id' => $post['id']
+        );
+        $this->call_modules( $post_id );
+        $post['cut'] = $post['full'] = '';
+        $saw_cut = FALSE;
+        foreach( $this->data['modules'] as $i=>$module ){
+            if( $module['name'] == 'cut' ){
+                $saw_cut = TRUE;
+                continue;
+            }
+            if( !$saw_cut ){
+                $post['cut'] .= $module['output'];
+            }
+            $post['full'] .= $module['output'];
+        }
+        return $post;
     }
     
     public function draft( ){
@@ -96,14 +137,16 @@ class PostController extends MY_Controller {
      * @return type 
      */
     protected function call_modules( $post_id, $module_id='' ){
-        if( empty($this->data['modules']) ) return;
+        if( empty($this->data['modules']) ){
+            $this->data['modules'] = $this->module->find_all_for_post( $post_id );
+        }
         foreach( $this->data['modules'] as $i=>$module ){
             $name = $module['name'];
             $method = ($module['id'] == $module_id) ? 'form' : 'show';
             Modules::run( $name.'/set_params', $post_id, $module['id'] );
             $this->data['modules'][$i]['output'] = Modules::run( $name.'/'.$method );
         }
-        return;
+        return $this->data['modules'];
     }
 
     /**
