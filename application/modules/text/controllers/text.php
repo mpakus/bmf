@@ -11,22 +11,40 @@ class TextController extends MY_Controller{
         $this->load->model( array('text') );
     }
         
+    /**
+     *
+     * @param type $post_id
+     * @param type $module_id
+     * @return type 
+     */    
     public function show(){
-       return "show text"; 
+        if( !empty($this->module_id) ){
+            $this->data['text'] = $this->text->find( $this->module_id, 1 );
+            return $this->template->render( $this->view.'show', $this->data );
+        }else{
+            return '--- empty ---';
+        }
     }
     
-    public function form( $post_id, $module_id ){
-        $this->data['post_id'] = $post_id;
-        $this->data['module_id'] = $module_id;
-        $this->data['text'] = $this->text->find( $module_id, 1 );
+    /**
+     *
+     * @param type $post_id
+     * @param type $module_id
+     * @return type 
+     */
+    public function form(){
+        $this->data['text'] = $this->text->find( $this->module_id, 1 );
         return $this->template->render( $this->view.'form', $this->data );
     }
     
+    /**
+     * 
+     */
     public function save( $post_id, $module_id ){
         $data = array();
         $data['module_id'] = $module_id;
         $data['full'] = param('full');
-        $this->text->save( $data );
+        $this->text->save( $data ); // keep in safe place ;)
         set_flash_ok('Текст сохранён');
         redirect( 'post/form/'.$post_id.'/'.$module_id );
     }

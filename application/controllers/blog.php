@@ -7,7 +7,7 @@ class BlogController extends MY_Controller{
     
     public function __construct() {
         parent::__construct( 'blog' );
-        $this->load->model( array('post', 'text', 'tag', 'comment') );        
+        $this->load->model( array('post', 'text/text', 'tag', 'comment') );        
      }
     
     /**

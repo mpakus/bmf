@@ -1,13 +1,5 @@
 <?= form_open_multipart( 'text/save/'.$post_id.'/'.$module_id ) ?>
-<div class="error"><?php echo validation_errors(); ?></div>
-<table class="fields">
-    <tr>
-        <td colspan="2">
-            <textarea id="textarea_<?= $module_id ?>" name="full"><?= $text['full'] ?></textarea>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2" style="text-align:right;"><input type="submit" class="button" value="Сохранить" /></td>
-    </tr>
-</table>
+    <div class="error"><?php echo validation_errors(); ?></div>
+    <textarea class="input-textarea" id="textarea_<?= $module_id ?>" name="full"><?= form_prep($text['full']) ?></textarea>
+    <div class="controlls"><input type="submit" class="btn btn-success" value="Сохранить" /></div>
 <?= form_close() ?>

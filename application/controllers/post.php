@@ -91,8 +91,14 @@ class PostController extends MY_Controller {
     protected function call_modules( $post_id, $module_id='' ){
         if( empty($this->data['modules']) ) return;
         foreach( $this->data['modules'] as $i=>$module ){
+            $name = $module['name'];
             $method = ($module['id'] == $module_id) ? 'form' : 'show';
-            $this->data['modules'][$i]['output'] = Modules::run( $module['name'].'/'.$method, $post_id, $module_id );           
+            Modules::run( $name.'/set_params', $post_id, $module['id'] );
+            $this->data['modules'][$i]['output'] = Modules::run( $name.'/'.$method );
+            
+//            $this->load->module( $name );   // load module and set_params
+//            $this->$name->set_params( $post_id, $module_id );            
+//            $this->data['modules'][$i]['output'] = $this->$name->$method();
         }
         return;
     }

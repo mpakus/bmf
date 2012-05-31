@@ -1,25 +1,34 @@
-<section id="post">
-    <h1>Создание топика</h1>
-    <?= form_open_multipart(current_url(), array('id' => 'post_form')) ?>
-    <div class="error"><?php echo validation_errors(); ?></div>
-    <table class="fields">
-        <tr>
-            <td><b class="red">*</b> Заголовок топика:</td>
-            <td><input name="title" type="text" class="input size90p" value="<?= form_prep($post['title']) ?>" /></td>
-        </tr>
-        <tr>
-            <td><b class="red">*</b> Тэги через запятую:</td>
-            <td><input type="text" class="input size90p"  id="tags" name="tags" value="<?= form_prep($post['tags']) ?>" /></td>
-        </tr>
-        <tr>
-            <td colspan="2" style="text-align:right;"><input type="submit" class="button" value="Сохранить" /></td>
-        </tr>
-    </table>
+<div class="row">
+    <div class="span12">        
+    <?= form_open_multipart(current_url(), array('id' => 'post_form', 'class'=>'well form-horizontal')) ?>
+    <fieldset>
+        <legend>Свойства топика</legend>
+        <hr/>
+        <div class="error"><?php echo validation_errors(); ?></div>
+        <div class="control-group">
+            <label class="control-label">Заголовок топика:</label>
+            <div class="controls">
+                <input name="title" type="text" class="input-xlarge" value="<?= form_prep($post['title']) ?>" />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">Тэги через запятую:</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge"  id="tags" name="tags" value="<?= form_prep($post['tags']) ?>" />
+            </div>
+        </div>
+        <div class="controls">
+            <input type="submit" class="btn btn-primary" value="Сохранить" />
+        </div>
+    </fieldset>
     <?= form_close() ?>
-</section>
+    </div>
+</div>
 
 <? if( !empty($post['id']) ){ ?>
-    <section id="modules">
+
+    <div class="row">
+        <div class="span12">        
         <ul>
         <? foreach( $modules as $module ){ ?>
             <li>
@@ -35,17 +44,22 @@
             </li>
         <? } ?>
         </ul>
-    </section>
+        </div>
+    </div>    
 
-    <section id="add_module">
-        <h1>Добавить новый блок</h1>
-        <?= form_open( 'post/add_module/'.$post['id'], 'id="add_module_form' ) ?>
+    <div class="row">
+        <div class="span12">        
+        <?= form_open( 'post/add_module/'.$post['id'], 'id="add_module_form" class="well form-inline"' ) ?>
+        <fieldset>
+            <label>Добавить новый блок:</label>
             <select id="add_module_select" name="add_module[name]">                                                                                                                                                                                            
             <? foreach( $modules_for_add as $name=>$module ){ ?>
                 <option value="<?= $name ?>"><?= $module['name'] ?></option>
             <? } ?>
             </select>
-            <input type="submit" value="Добавить" />
+            <input type="submit" value="Добавить" class="btn"/>
+        </fieldset>
         <?= form_close() ?>
-    </section>
-<? } ?> 
+        </div>
+    </div>
+<? } ?>
