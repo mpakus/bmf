@@ -82,6 +82,13 @@ class PostController extends MY_Controller {
         $this->draw();
     }
 
+    public function publish( $post_id ){
+        
+    }
+    
+    public function draft( ){
+        
+    }
     /**
      *
      * @param type $post_id
@@ -95,10 +102,6 @@ class PostController extends MY_Controller {
             $method = ($module['id'] == $module_id) ? 'form' : 'show';
             Modules::run( $name.'/set_params', $post_id, $module['id'] );
             $this->data['modules'][$i]['output'] = Modules::run( $name.'/'.$method );
-            
-//            $this->load->module( $name );   // load module and set_params
-//            $this->$name->set_params( $post_id, $module_id );            
-//            $this->data['modules'][$i]['output'] = $this->$name->$method();
         }
         return;
     }
