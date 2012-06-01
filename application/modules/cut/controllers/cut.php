@@ -1,6 +1,6 @@
 <?php
 
-class CutController extends MY_Controller{
+class CutController extends MY_Module{
     
     public function __construct(){
         parent::__construct();

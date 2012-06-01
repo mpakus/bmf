@@ -1,6 +1,6 @@
 <?php
 
-class TextController extends MY_Controller{
+class TextController extends MY_Module{
     protected
         $view = 'text/'
     ;

@@ -441,3 +441,9 @@ function prepare_text( $text ){
     // Парсим
     return CI()->jevix->parse($text, $errors);
 }
+
+function make_self_values( $ar ){
+    $res = array();
+    foreach( $ar as $a ) $res[$a] = $a;    
+    return $res;
+}

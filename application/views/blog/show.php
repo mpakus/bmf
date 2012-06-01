@@ -1,12 +1,16 @@
 <?php
-
-    if( empty($post) ){
-        echo 'Странно, но мы не нашли такого топика на нашем сайте';
-        return;
-    }
-    
-    echo $post['full'];
+if( empty($post) ){
+    echo 'Странно, но мы не нашли такого топика на нашем сайте';
+    return;
+}
 ?>
+<div class="row">
+    <div class="span12">
+        <h1><?= $post['title'] ?></h1>
+        <?= post_control($post) ?>
+        <?= $post['full'] ?>
+    </div>
+</div>
 
 <h3>Комментарии к статья:</h3>
 <div class="navline"></div>

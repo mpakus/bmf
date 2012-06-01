@@ -26,10 +26,13 @@
         <link rel="stylesheet" type="text/css" href="<?= site_url('static/css/jquery.pnotify.default.css') ?>">
         <link rel="stylesheet" type="text/css" href="<?= site_url('static/css/flash.css') ?>">
         <link rel="stylesheet" type="text/css" href="<?= site_url('static/jqueryui/blitzer/jquery-ui-1.8.19.custom.css') ?>" />
+        <!--link rel="stylesheet" href="http://yandex.st/highlightjs/6.2/styles/default.min.css" -->
+        <link rel="stylesheet" type="text/css" href="<?= site_url('static/highlightjs/monokai.css') ?>" />
 
         <script type="text/javascript" src="<?= site_url('static/js/jquery-1.7.2.min.js') ?>"></script>
         <script type="text/javascript" src="<?= site_url('static/js/bmf.js') ?>"></script>
         <script type="text/javascript" src="<?= site_url('static/js/jquery.pnotify.min.js') ?>"></script>
+        <script type="text/javascript" src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
     </head>
 
     <body>
@@ -103,6 +106,6 @@
         </div>
 
         <script src="<?= site_url('static/js/bootstrap.min.js') ?>"></script>
-
+        <script>hljs.initHighlightingOnLoad();</script>
     </body>
 </html>

@@ -75,7 +75,7 @@ class Post extends MY_Model {
         return $this->where_published()->count();
     }
     public function where_published(){
-        $this->db->where('deleted',0)->where('published',1)->order_by( 'added_at,t.rating' );
+        $this->db->where('deleted',0)->where('published',1)->order_by( 'added_at', 'DESC' );
         return $this;
     }
 
