@@ -20,4 +20,7 @@ class MY_Module extends MY_Controller{
         return $this;
     }
 
+    public function delete(){
+        return TRUE;
+    }
 }
