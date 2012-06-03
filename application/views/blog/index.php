@@ -9,11 +9,13 @@ if( empty($posts) ){
 <div class="row">
     <div class="span12">
         <? foreach( $posts as $post ){ ?>
+        <div id="post-<?= $post['id'] ?>">
             <h1><?= $post['title'] ?></h1>
             <?= post_control($post) ?>
             <?= $post['cut'] ?>
             <a href="<?= site_url('blog/show/'.$post['id']) ?>" class="btn btn-info">Прочитать</a>
             <hr/>
+        </div>
         <? } ?>
     </div>
 </div>

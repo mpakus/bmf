@@ -73,7 +73,7 @@
 
         <div class="container">
             <?= $content ?>
-            <!-- 
+<!-- 
             <div class="hero-unit">
                 <h1>Hello, world!</h1>
                 <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
@@ -103,8 +103,6 @@
             <footer>
                 <p>&copy; <a href="http://aomega.ru">AOmega.ru</a> 2012</p>
             </footer>
-        <p class="title">ВАШ КОММЕНТАРИЙ:</p>
-
         </div>
 
         <script src="<?= site_url('static/bootstrap/js/bootstrap.min.js') ?>"></script>
@@ -113,11 +111,14 @@
                 $('.confirm').click(function(){
                    return confirm('Вы уверены?');
                 });
-                hljs.initHighlightingOnLoad();
                 
-                $('.m-list').sortable(function(el){
-                   console.log( el ); 
-                });
+                $('.rating a').click( AC.Blog.vote );
+                $('a.delete').click( AC.Post.destroy );
+
+                $('a.delcomment').click( AC.Comment.destroy );
+                $('a.reply').click( AC.Comment.reply );
+                
+                hljs.initHighlightingOnLoad();
             });
         </script>
     </body>

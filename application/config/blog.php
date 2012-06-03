@@ -12,8 +12,8 @@ $config['blog']['modules'] = array(
     'code' => array(
         'name' => 'Код'
     ),
-    'photos' => array(
-        'name' => 'Фотоальбом'
+    'photo' => array(
+        'name' => 'Фото'
     ),
     'cut' => array(
         'name' => 'Подкат'

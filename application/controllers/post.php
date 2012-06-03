@@ -189,7 +189,7 @@ class PostController extends MY_Controller {
         );
         $module_id = $this->module->add_new( $data );
         set_flash_ok( 'Отлично, новый модуль, давай заполним его' );
-        redirect( 'post/form/'.$post_id.'/'.$module_id );
+        redirect( 'post/form/'.$post_id.'/'.$module_id.'#mod-'.$module_id );
     }
 
 

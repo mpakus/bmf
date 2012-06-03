@@ -32,12 +32,14 @@
         <ul class="m-list">
         <? foreach( $modules as $module ){ ?>
             <li>
-                <div id="title_<?= $module['id']?>" class="row">
+                <a name="mod-<?= $module['id'] ?>"></a>
+                <div id="title_<?= $module['id']?>" class="row module-title">
                     <strong><?= $module['name'] ?></strong>
                     <? if( $module['id'] != $module_id ){ ?>
-                   
-                        <?= anchor('post/form/'.$post['id'].'/'.$module['id'], 'Редактировать', 'class="btn btn-info"') ?>
-                        <?= anchor( 'post/module_delete/'.$post['id'].'/'.$module['id'], 'Удалить', 'class="btn btn-danger confirm"') ?>
+                        <span class="module-control">
+                        <a href="<?= site_url('post/form/'.$post['id'].'/'.$module['id'].'#mod-'.$module['id'] ) ?>" class="btn btn-info"><i class="icon-pencil icon-white"></i> Редактировать</a>
+                        <a href="<?= site_url( 'post/module_delete/'.$post['id'].'/'.$module['id']) ?>" class="btn btn-danger confirm"><i class="icon-trash icon-white"></i> Удалить</a>
+                        </span>
                     <? } ?>
                 </div>
                 <br class="clear"/>

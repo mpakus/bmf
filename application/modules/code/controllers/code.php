@@ -48,7 +48,7 @@ class CodeController extends MY_Module{
         $data['full']     = param('full', FALSE, FALSE);
         $this->code->save( $data ); // keep in safe place ;)
         set_flash_ok('Код сохранён');
-        redirect( 'post/form/'.$post_id.'/'.$module_id );
+        redirect( 'post/form/'.$post_id.'/'.$module_id.'#mod-'.$module_id );
     }
     
     /**

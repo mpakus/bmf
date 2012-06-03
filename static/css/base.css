@@ -9,6 +9,17 @@ ul.m-list{
 ul.m-list li{
     margin-bottom: 20px;
 }
+.module-title{
+    height: 32px;
+}
+.module-control{
+    float: right;
+    display: none;
+}
+ul.m-list li:hover .module-control{
+    display: block;
+}
+
 /** Comments **/
 .comment{
     padding: 15px 0px 15px 0px;
