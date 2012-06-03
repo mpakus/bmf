@@ -50,4 +50,14 @@ class CodeController extends MY_Module{
         set_flash_ok('Код сохранён');
         redirect( 'post/form/'.$post_id.'/'.$module_id );
     }
+    
+    /**
+     * 
+     */
+    public function delete( $post_id='', $module_id='' ){
+        if( empty($module_id) ) $module_id = $this->data['module_id'];                
+        $this->code->delete( $module_id );
+        return TRUE;
+    }
+    
 }

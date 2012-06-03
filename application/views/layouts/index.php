@@ -7,7 +7,6 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <!-- Le styles -->
         <link href="<?= site_url('static/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
         <style type="text/css">
             body {
@@ -106,6 +105,13 @@
         </div>
 
         <script src="<?= site_url('static/js/bootstrap.min.js') ?>"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
+        <script type="text/javascript">
+            $(function(){
+                $('.confirm').click(function(){
+                   return confirm('Вы уверены?'); 
+                });
+                hljs.initHighlightingOnLoad();                
+            });
+        </script>
     </body>
 </html>

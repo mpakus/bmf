@@ -2,3 +2,10 @@
     width: 99%;
     height: 200px;
 }
+
+ul.m-list{
+    list-style: none;
+}
+ul.m-list li{
+    margin-bottom: 20px;
+}
