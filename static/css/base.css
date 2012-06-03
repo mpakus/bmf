@@ -9,3 +9,27 @@ ul.m-list{
 ul.m-list li{
     margin-bottom: 20px;
 }
+/** Comments **/
+.comment{
+    padding: 15px 0px 15px 0px;
+    margin-top: 10px;
+    font-size: 12px;
+    border: 1px solid #F5F5F5;
+    padding: 10px;
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    clear: both;
+    postition: relative;
+    overflow: hidden;
+}
+.comment .avatar{
+    float: left;
+    width: 65px;
+    margin-right: 13px;
+}
+.replayed{
+    border-color: #00A8FF;
+}
+a.reply{ font-size: 10px; text-transform: uppercase }
+small{ font-size: 11px; }
+.delcomment{ color:red; float: right; }

@@ -45,7 +45,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">BMF</a>
+                    <a class="brand" href="/">BMF</a>
                     <div class="nav-collapse">
                         <ul class="nav">
                             <li class="active"><a href="/">Blog</a></li>
