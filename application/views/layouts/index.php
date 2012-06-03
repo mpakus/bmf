@@ -31,6 +31,8 @@
         <script type="text/javascript" src="<?= site_url('static/js/jquery-1.7.2.min.js') ?>"></script>
         <script type="text/javascript" src="<?= site_url('static/js/bmf.js') ?>"></script>
         <script type="text/javascript" src="<?= site_url('static/js/jquery.pnotify.min.js') ?>"></script>
+        <script type="text/javascript" src="<?= site_url('static/jqueryui/jquery-ui-1.8.19.custom.min.js') ?>"></script>
+        
         <script type="text/javascript" src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
     </head>
 
@@ -101,16 +103,21 @@
             <footer>
                 <p>&copy; <a href="http://aomega.ru">AOmega.ru</a> 2012</p>
             </footer>
+        <p class="title">ВАШ КОММЕНТАРИЙ:</p>
 
         </div>
 
-        <script src="<?= site_url('static/js/bootstrap.min.js') ?>"></script>
+        <script src="<?= site_url('static/bootstrap/js/bootstrap.min.js') ?>"></script>
         <script type="text/javascript">
             $(function(){
                 $('.confirm').click(function(){
-                   return confirm('Вы уверены?'); 
+                   return confirm('Вы уверены?');
                 });
-                hljs.initHighlightingOnLoad();                
+                hljs.initHighlightingOnLoad();
+                
+                $('.m-list').sortable(function(el){
+                   console.log( el ); 
+                });
             });
         </script>
     </body>
