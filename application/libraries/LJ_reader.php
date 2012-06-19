@@ -1,29 +1,33 @@
-<?php  
-    if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-    class LJ_reader implements Iterator { 
+
+    /**
+    * Lj_reader
+    *
+    * @package	Import from social networks
+    * @subpackage	Livejournal
+    * @category	Data transfer
+    * @author	denied
+    * @link	http://aomega.ru
+    */
+    class Lj_reader implements Iterator { 
         
-        //Response hash from the server
-        protected $response;                    
-        //Configuration of the XML-RPC requests
-        protected $config = array(              
-            'encoding' => 'utf-8',
-            'escaping' => 'markup',
-            'verbosity' => 'no_white_space'
-        );
+        protected
+            $response,          //Response hash from the server                  
+            $config = array(    //Configuration of the XML-RPC requests        
+                'encoding' => 'utf-8',
+                'escaping' => 'markup',
+                'verbosity' => 'no_white_space'
+            );
         
-        //LJ username
-        private $username;
-        //LJ password
-        private $password;  
-        //LJ posts array
-        private $posts;  
-         //LJ lastN request parameter
-        private $nlast;   
-        //LJ current last post date
-        private $cur_last_date;    
-        //LJ cookie
-        private $cookie;                        
+        private
+            $username,          //LJ username
+            $password,          //LJ password
+            $posts,             //LJ posts array  
+            $nlast,             //LJ lastN request parameter   
+            $cur_last_date,     //LJ current last post date
+            $cookie,            //LJ cookie 
+            $comments;          //Download comments? (true/false)       
         
         /**
         * Constructor
@@ -43,26 +47,30 @@
             if($params['nlast'] == '') $this->nlast = 10;
             else $this->nlast = $params['nlast'];
             
+            //Filling download comments flag
+            if($params['comments'] == true) $this->comments = true;
+            else $this->comments = false;
+                   
             //Initializing posts array
             $this->posts = array();
             
             //Finally, authorise
-            $this->authorization();
+            $this->_authorization();
             
             //And fetching first portion of posts
-            $this->getPosts($this->username);
+            $this->_get_posts($this->username);
         }
 
         /**
         * Method gets a cookie from LJ 
         */
-        protected function authorization() 
+        private function _authorization() 
         {
             // 1. Getting a challenge
             $params = array ();
-            $this->request('getchallenge', $params);
+            $this->_request('getchallenge', $params);
             if (xmlrpc_is_fault($this->response)) {
-                throw new Exception('LJ_reader[authorisation]: XML-RPC error while getting a challenge. ' . 
+                throw new Exception('LJ_reader[_authorisation]: XML-RPC error while getting a challenge. ' . 
                                     'Code = ' . $this->response['faultCode'] . ' ' .
                                     'ErrorString = ' . $this->response['faultString']
                                     );                  
@@ -78,9 +86,9 @@
                 'auth_challenge' => $auth_challenge,
                 'auth_response' => $auth_response
             );
-            $this->request('sessiongenerate', $params);
+            $this->_request('sessiongenerate', $params);
             if (xmlrpc_is_fault($this->response)) {
-                throw new Exception('LJ_reader[authorisation]: XML-RPC error while getting a cookie. ' . 
+                throw new Exception('LJ_reader[_authorisation]: XML-RPC error while getting a cookie. ' . 
                                     'Code = ' . $this->response['faultCode'] . ' ' .
                                     'ErrorString = ' . $this->response['faultString']
                                     );                  
@@ -94,7 +102,7 @@
         * @param string $request XML-RPC request
         * @return resource
         */
-        protected function getContext($request) 
+        private function _get_context($request) 
         {
             if ($this->cookie != '') 
                 $header = array(
@@ -117,11 +125,10 @@
         * @param string $procedure Procedure's name
         * @param array $params Request's information
         */
-        protected function request($procedure, $params)
+        private function _request($procedure, $params)
         {
             $request = xmlrpc_encode_request("LJ.XMLRPC." . $procedure, $params, $this->config);
-            $context = $this->getContext($request);
-            var_dump($this->cookie);
+            $context = $this->_get_context($request);
             $file = file_get_contents("http://www.livejournal.com/interface/xmlrpc", false, $context);
             $this->response = xmlrpc_decode($file);
         }
@@ -130,10 +137,10 @@
         * Method makes XML-RPC request to the API and returns posts
         * @param string $user Posts author name
         */
-        private function getPosts($user) 
+        private function _get_posts($user) 
         {
             
-            if($user == '') throw new Exception('LJ_reader[getPosts]: User name must not equal to empty string!');                  
+            if($user == '') throw new Exception('LJ_reader[_get_posts]: User name must not equal to empty string!');                  
 
             //Filling params array for request
             $params = array(
@@ -148,28 +155,110 @@
             );
             
             //Sending request 
-            $this->request('getevents', $params);
+            $this->_request('getevents', $params);
             
             //If response is fault - throw an exception
             if (xmlrpc_is_fault($this->response)) {
-                throw new Exception('LJ_reader[getPosts]: XML-RPC error while receiving posts. ' . 
+                throw new Exception('LJ_reader[_get_posts]: XML-RPC error while receiving posts. ' . 
                                     'Code = ' . $this->response['faultCode'] . ' ' .
                                     'ErrorString = ' . $this->response['faultString']
                                     ); 
             } else {
                 //Pushing new posts to the $posts array
                 foreach($this->response['events'] as $item) {
-                    $this->posts[] = array(
+                    $this->posts[$item['itemid']] = array(
+                        'jitemid' => $item['itemid'],
+                        'anum' => $item['anum'],
                         'subject' => $item['subject']->scalar,
                         'eventtime' => $item['eventtime'],
                         'event' => $item['event']->scalar
                     );
+                    
+                    //If comments is true - fetching the comments
+                    if($this->comments) {
+                        $this->posts[$item['itemid']]['comments'] = $this->_get_comments($user, $item['itemid']*256 + $item['anum']);
+                    }
                     
                     $this->cur_last_date = $item['eventtime'];
                     
                 }
             }
             
+        }
+        
+        /**
+        * Method makes XML-RPC request to the API and returns comments
+        * @param string $user Posts author name
+        * @param number $ditemid Posts ditemid = jitemid*256 + anum 
+        */
+        private function _get_comments($user, $ditemid) 
+        {
+            
+            if($user == '') throw new Exception('LJ_reader[_get_comments]: User name must not equal to empty string!');                  
+            if($ditemid == '') throw new Exception('LJ_reader[_get_comments]: ditemid name must not equal to empty string!');                  
+            
+            //Return array
+            $ret = array();
+           
+            //Filling params array for request
+            $params = array(
+                'username' => $this->username,
+                'auth_method' => 'cookie',
+                'lineendings' => 'unix',
+                'ver' => '1',
+                'journal' => $user,
+                'beforedate' => $this->cur_last_date,
+                'ditemid' => $ditemid
+            );
+            
+            //Sending request 
+            $this->_request('getcomments', $params);
+            
+            //If response is fault - throw an exception
+            if (xmlrpc_is_fault($this->response)) {
+                throw new Exception('LJ_reader[_get_comments]: XML-RPC error while receiving posts. ' . 
+                                    'Code = ' . $this->response['faultCode'] . ' ' .
+                                    'ErrorString = ' . $this->response['faultString']
+                                    ); 
+            } else {
+                //Filling up $ret array with a nested comments
+                if(!empty($this->response['comments'])) {
+                    foreach($this->response['comments'] as $comment) {
+                        $ret[] = $this->_get_comment_info($comment); 
+                    }
+                }
+            }
+            
+            //Return nested comments tree for $ditemid post
+            return $ret;
+        }
+        
+        /**
+        * Method makes recursive view into the each comment tree
+        * @param array $comment Comment
+        */
+        private function _get_comment_info($comment)
+        {
+            //Returning array
+            $ret = array();
+            
+            //Filling up the main fields
+            $ret['posterid'] = $comment['posterid'];
+            $ret['body'] = $comment['body']->scalar;
+            $ret['level'] = $comment['level'];
+            $ret['dtalkid'] = $comment['dtalkid'];
+            $ret['postername'] = $comment['postername'];
+            $ret['datepostunix'] = $comment['datepostunix'];
+            
+            //If comment have childs - recursive search begins...
+            if(!empty($comment['children'])) {
+                foreach($comment['children'] as $child) {
+                    $ret['children'][] = $this->_get_comment_info($child);
+                }
+            }
+            
+            //Return comment array
+            return $ret;
         }
         
         /* Iterator interface implementation */
@@ -186,7 +275,7 @@
         public function next()
         {
             if ((key($this->posts) + 1) % $this->nlast == 0)
-                $this->getPosts($this->username);
+                $this->_get_posts($this->username);
             return next($this->posts);
         }
         
