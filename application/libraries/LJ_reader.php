@@ -55,22 +55,22 @@
             $this->posts = array();
             
             //Finally, authorise
-            $this->_authorization();
+            $this->authorization();
             
             //And fetching first portion of posts
-            $this->_get_posts($this->username);
+            //$this->get_posts($this->username);
         }
 
         /**
         * Method gets a cookie from LJ 
         */
-        private function _authorization() 
+        protected function authorization() 
         {
             // 1. Getting a challenge
             $params = array ();
-            $this->_request('getchallenge', $params);
+            $this->request('getchallenge', $params);
             if (xmlrpc_is_fault($this->response)) {
-                throw new Exception('LJ_reader[_authorisation]: XML-RPC error while getting a challenge. ' . 
+                throw new Exception('LJ_reader[authorisation]: XML-RPC error while getting a challenge. ' . 
                                     'Code = ' . $this->response['faultCode'] . ' ' .
                                     'ErrorString = ' . $this->response['faultString']
                                     );                  
@@ -86,9 +86,9 @@
                 'auth_challenge' => $auth_challenge,
                 'auth_response' => $auth_response
             );
-            $this->_request('sessiongenerate', $params);
+            $this->request('sessiongenerate', $params);
             if (xmlrpc_is_fault($this->response)) {
-                throw new Exception('LJ_reader[_authorisation]: XML-RPC error while getting a cookie. ' . 
+                throw new Exception('LJ_reader[authorisation]: XML-RPC error while getting a cookie. ' . 
                                     'Code = ' . $this->response['faultCode'] . ' ' .
                                     'ErrorString = ' . $this->response['faultString']
                                     );                  
@@ -102,7 +102,7 @@
         * @param string $request XML-RPC request
         * @return resource
         */
-        private function _get_context($request) 
+        protected function get_context($request) 
         {
             if ($this->cookie != '') 
                 $header = array(
@@ -125,19 +125,23 @@
         * @param string $procedure Procedure's name
         * @param array $params Request's information
         */
-        private function _request($procedure, $params)
+        protected function request($procedure, $params)
         {
+            if($procedure == '')
+                throw new Exception('LJ_reader[request]: request must not be empty!');
+            
             $request = xmlrpc_encode_request("LJ.XMLRPC." . $procedure, $params, $this->config);
-            $context = $this->_get_context($request);
+            $context = $this->get_context($request);
             $file = file_get_contents("http://www.livejournal.com/interface/xmlrpc", false, $context);
             $this->response = xmlrpc_decode($file);
+            
         }
         
         /**
         * Method makes XML-RPC request to the API and returns posts
         * @param string $user Posts author name
         */
-        private function _get_posts($user) 
+        protected function get_posts($user) 
         {
             
             if($user == '') throw new Exception('LJ_reader[_get_posts]: User name must not equal to empty string!');                  
@@ -155,11 +159,11 @@
             );
             
             //Sending request 
-            $this->_request('getevents', $params);
+            $this->request('getevents', $params);
             
             //If response is fault - throw an exception
             if (xmlrpc_is_fault($this->response)) {
-                throw new Exception('LJ_reader[_get_posts]: XML-RPC error while receiving posts. ' . 
+                throw new Exception('LJ_reader[get_posts]: XML-RPC error while receiving posts. ' . 
                                     'Code = ' . $this->response['faultCode'] . ' ' .
                                     'ErrorString = ' . $this->response['faultString']
                                     ); 
@@ -176,7 +180,7 @@
                     
                     //If comments is true - fetching the comments
                     if($this->comments) {
-                        $this->posts[$item['itemid']]['comments'] = $this->_get_comments($user, $item['itemid']*256 + $item['anum']);
+                        $this->posts[$item['itemid']]['comments'] = $this->get_comments($user, $item['itemid']*256 + $item['anum']);
                     }
                     
                     $this->cur_last_date = $item['eventtime'];
@@ -191,11 +195,11 @@
         * @param string $user Posts author name
         * @param number $ditemid Posts ditemid = jitemid*256 + anum 
         */
-        private function _get_comments($user, $ditemid) 
+        protected function get_comments($user, $ditemid) 
         {
             
-            if($user == '') throw new Exception('LJ_reader[_get_comments]: User name must not equal to empty string!');                  
-            if($ditemid == '') throw new Exception('LJ_reader[_get_comments]: ditemid name must not equal to empty string!');                  
+            if($user == '') throw new Exception('LJ_reader[get_comments]: User name must not equal to empty string!');                  
+            if($ditemid == '') throw new Exception('LJ_reader[get_comments]: ditemid name must not equal to empty string!');                  
             
             //Return array
             $ret = array();
@@ -212,11 +216,11 @@
             );
             
             //Sending request 
-            $this->_request('getcomments', $params);
+            $this->request('getcomments', $params);
             
             //If response is fault - throw an exception
             if (xmlrpc_is_fault($this->response)) {
-                throw new Exception('LJ_reader[_get_comments]: XML-RPC error while receiving posts. ' . 
+                throw new Exception('LJ_reader[get_comments]: XML-RPC error while receiving posts. ' . 
                                     'Code = ' . $this->response['faultCode'] . ' ' .
                                     'ErrorString = ' . $this->response['faultString']
                                     ); 
@@ -224,7 +228,7 @@
                 //Filling up $ret array with a nested comments
                 if(!empty($this->response['comments'])) {
                     foreach($this->response['comments'] as $comment) {
-                        $ret[] = $this->_get_comment_info($comment); 
+                        $ret[] = $this->get_comment_info($comment); 
                     }
                 }
             }
@@ -237,7 +241,7 @@
         * Method makes recursive view into the each comment tree
         * @param array $comment Comment
         */
-        private function _get_comment_info($comment)
+        protected function get_comment_info($comment)
         {
             //Returning array
             $ret = array();
@@ -253,7 +257,7 @@
             //If comment have childs - recursive search begins...
             if(!empty($comment['children'])) {
                 foreach($comment['children'] as $child) {
-                    $ret['children'][] = $this->_get_comment_info($child);
+                    $ret['children'][] = $this->get_comment_info($child);
                 }
             }
             
@@ -275,7 +279,7 @@
         public function next()
         {
             if ((key($this->posts) + 1) % $this->nlast == 0)
-                $this->_get_posts($this->username);
+                $this->get_posts($this->username);
             return next($this->posts);
         }
         
