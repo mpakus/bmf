@@ -111,8 +111,8 @@
                 hljs.initHighlightingOnLoad();  // source code highlighter
                 $('a.delete').click( BMF.Post.destroy );
 
-//                $('a.delcomment').click( AC.Comment.destroy );
-//                $('a.reply').click( AC.Comment.reply );
+                $('a.delcomment').click( BMF.Comment.destroy );
+                $('a.reply').click( BMF.Comment.reply );
 //
 //                $('#select_comments').click( AC.Sidebar.show_comments );
 //                $('#select_reviews').click( AC.Sidebar.show_reviews );

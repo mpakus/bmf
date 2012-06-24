@@ -10,7 +10,7 @@ if( empty($posts) ){
     <div class="span12">
         <? foreach( $posts as $post ){ ?>
             <div id="post-<?=$post['id']?>">
-                <h1><?= $post['title'] ?></h1>
+                <h1><a href="<?=post_link($post)?>"><?= $post['title'] ?></a></h1>
                 <?= post_control($post) ?>
                 <?= $post['cut'] ?>
                 <a href="<?= site_url('blog/show/'.$post['id']) ?>" class="btn btn-info">Прочитать</a>

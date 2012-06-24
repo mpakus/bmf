@@ -1926,3 +1926,959 @@ DEBUG - 2012-06-24 23:24:37 --> UTF-8 Support Enabled
 DEBUG - 2012-06-24 23:24:37 --> URI Class Initialized
 DEBUG - 2012-06-24 23:24:37 --> Router Class Initialized
 ERROR - 2012-06-24 23:24:37 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:32:50 --> Config Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:32:50 --> URI Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Router Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Output Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Security Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Input Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:32:50 --> Language Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Language Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Config Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:32:50 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:32:50 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:32:50 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:32:50 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:32:50 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:32:50 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:32:50 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:32:50 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:32:50 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:32:50 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:32:50 --> Session Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:32:50 --> Session routines successfully run
+DEBUG - 2012-06-24 23:32:50 --> Model Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Model Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> BlogController MX_Controller Initialized
+DEBUG - 2012-06-24 23:32:50 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:32:50 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:32:50 --> Model Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> File loaded: ./application/modules/text/models/text.php
+DEBUG - 2012-06-24 23:32:50 --> Model Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Model Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> Model Class Initialized
+DEBUG - 2012-06-24 23:32:50 --> File loaded: ./application/views/blog/show.php
+ERROR - 2012-06-24 23:32:50 --> Severity: Notice  --> Undefined variable: page D:\www\bmf\application\views\layouts\index.php 5
+DEBUG - 2012-06-24 23:32:50 --> File loaded: ./application/views/layouts/index.php
+DEBUG - 2012-06-24 23:32:50 --> Final output sent to browser
+DEBUG - 2012-06-24 23:32:50 --> Total execution time: 0.2305
+DEBUG - 2012-06-24 23:32:51 --> Config Class Initialized
+DEBUG - 2012-06-24 23:32:51 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:32:51 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:32:51 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:32:51 --> URI Class Initialized
+DEBUG - 2012-06-24 23:32:51 --> Router Class Initialized
+ERROR - 2012-06-24 23:32:51 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:32:53 --> Config Class Initialized
+DEBUG - 2012-06-24 23:32:53 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:32:53 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:32:53 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:32:53 --> URI Class Initialized
+DEBUG - 2012-06-24 23:32:53 --> Router Class Initialized
+ERROR - 2012-06-24 23:32:53 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:33:54 --> Config Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:33:54 --> URI Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> Router Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> No URI present. Default controller set.
+DEBUG - 2012-06-24 23:33:54 --> Output Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> Security Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> Input Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:33:54 --> Language Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> Language Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> Config Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:33:54 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:33:54 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:33:54 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:33:54 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:33:54 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:33:54 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:33:54 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:33:54 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:33:54 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:33:54 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:33:54 --> Session Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:33:54 --> Session routines successfully run
+DEBUG - 2012-06-24 23:33:54 --> Model Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> Model Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> BlogController MX_Controller Initialized
+DEBUG - 2012-06-24 23:33:54 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:33:54 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:33:54 --> Model Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> File loaded: ./application/modules/text/models/text.php
+DEBUG - 2012-06-24 23:33:54 --> Model Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> Model Class Initialized
+DEBUG - 2012-06-24 23:33:54 --> Model Class Initialized
+ERROR - 2012-06-24 23:33:54 --> Severity: Notice  --> Undefined variable: page D:\www\bmf\application\models\post.php 72
+ERROR - 2012-06-24 23:33:54 --> Severity: Notice  --> Undefined variable: pagination D:\www\bmf\application\views\blog\index.php 25
+DEBUG - 2012-06-24 23:33:54 --> File loaded: ./application/views/blog/index.php
+ERROR - 2012-06-24 23:33:54 --> Severity: Notice  --> Undefined variable: page D:\www\bmf\application\views\layouts\index.php 5
+DEBUG - 2012-06-24 23:33:54 --> File loaded: ./application/views/layouts/index.php
+DEBUG - 2012-06-24 23:33:54 --> Final output sent to browser
+DEBUG - 2012-06-24 23:33:54 --> Total execution time: 0.2851
+DEBUG - 2012-06-24 23:33:56 --> Config Class Initialized
+DEBUG - 2012-06-24 23:33:56 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:33:56 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:33:56 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:33:56 --> URI Class Initialized
+DEBUG - 2012-06-24 23:33:56 --> Router Class Initialized
+ERROR - 2012-06-24 23:33:56 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:33:59 --> Config Class Initialized
+DEBUG - 2012-06-24 23:33:59 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:33:59 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:33:59 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:33:59 --> URI Class Initialized
+DEBUG - 2012-06-24 23:33:59 --> Router Class Initialized
+DEBUG - 2012-06-24 23:33:59 --> Output Class Initialized
+DEBUG - 2012-06-24 23:33:59 --> Security Class Initialized
+DEBUG - 2012-06-24 23:33:59 --> Input Class Initialized
+DEBUG - 2012-06-24 23:33:59 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:33:59 --> Language Class Initialized
+DEBUG - 2012-06-24 23:33:59 --> Language Class Initialized
+DEBUG - 2012-06-24 23:33:59 --> Config Class Initialized
+DEBUG - 2012-06-24 23:33:59 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:33:59 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:33:59 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:33:59 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:33:59 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:33:59 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:33:59 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:33:59 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:33:59 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:34:00 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:34:00 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:34:00 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:34:00 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:34:00 --> Session Class Initialized
+DEBUG - 2012-06-24 23:34:00 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:34:00 --> Session routines successfully run
+DEBUG - 2012-06-24 23:34:00 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:00 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:00 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:34:00 --> BlogController MX_Controller Initialized
+DEBUG - 2012-06-24 23:34:00 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:34:00 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:34:00 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:00 --> File loaded: ./application/modules/text/models/text.php
+DEBUG - 2012-06-24 23:34:00 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:00 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:00 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:00 --> File loaded: ./application/views/blog/show.php
+ERROR - 2012-06-24 23:34:00 --> Severity: Notice  --> Undefined variable: page D:\www\bmf\application\views\layouts\index.php 5
+DEBUG - 2012-06-24 23:34:00 --> File loaded: ./application/views/layouts/index.php
+DEBUG - 2012-06-24 23:34:00 --> Final output sent to browser
+DEBUG - 2012-06-24 23:34:00 --> Total execution time: 0.2419
+DEBUG - 2012-06-24 23:34:00 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:00 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:34:00 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:34:00 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:34:00 --> URI Class Initialized
+DEBUG - 2012-06-24 23:34:00 --> Router Class Initialized
+ERROR - 2012-06-24 23:34:00 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:34:04 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:04 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:34:04 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:34:04 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:34:04 --> URI Class Initialized
+DEBUG - 2012-06-24 23:34:04 --> Router Class Initialized
+ERROR - 2012-06-24 23:34:04 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:34:07 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:34:07 --> URI Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Router Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Output Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Security Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Input Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:34:07 --> Language Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Language Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:34:07 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:34:07 --> Session Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:34:07 --> Session routines successfully run
+DEBUG - 2012-06-24 23:34:07 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> PostController MX_Controller Initialized
+DEBUG - 2012-06-24 23:34:07 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:34:07 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Model Class Initialized
+ERROR - 2012-06-24 23:34:07 --> Severity: Notice  --> Undefined index: previews_dir D:\www\bmf\application\controllers\post.php 24
+DEBUG - 2012-06-24 23:34:07 --> Model Class Initialized
+ERROR - 2012-06-24 23:34:07 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:34:07 --> XSS Filtering completed
+ERROR - 2012-06-24 23:34:07 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:34:07 --> XSS Filtering completed
+ERROR - 2012-06-24 23:34:07 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:34:07 --> XSS Filtering completed
+DEBUG - 2012-06-24 23:34:07 --> insert: INSERT INTO `comments` (`post_id`, `parent_id`, `text`, `user_id`, `added_at`) VALUES ('5', '', 'eqwe wewq eqwewq', '4', '2012-06-24 23:34:07')
+DEBUG - 2012-06-24 23:34:07 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:34:07 --> URI Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Router Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Output Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Security Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Input Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:34:07 --> Language Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Language Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:34:07 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:34:07 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:34:08 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:34:08 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:34:08 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:34:08 --> Session Class Initialized
+DEBUG - 2012-06-24 23:34:08 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:34:08 --> Session routines successfully run
+DEBUG - 2012-06-24 23:34:08 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:08 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:08 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:34:08 --> BlogController MX_Controller Initialized
+DEBUG - 2012-06-24 23:34:08 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:34:08 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:34:08 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:08 --> File loaded: ./application/modules/text/models/text.php
+DEBUG - 2012-06-24 23:34:08 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:08 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:08 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:08 --> File loaded: ./application/views/blog/show.php
+ERROR - 2012-06-24 23:34:08 --> Severity: Notice  --> Undefined variable: page D:\www\bmf\application\views\layouts\index.php 5
+DEBUG - 2012-06-24 23:34:08 --> File loaded: ./application/views/layouts/index.php
+DEBUG - 2012-06-24 23:34:08 --> Final output sent to browser
+DEBUG - 2012-06-24 23:34:08 --> Total execution time: 0.2550
+DEBUG - 2012-06-24 23:34:08 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:08 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:34:08 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:34:08 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:34:08 --> URI Class Initialized
+DEBUG - 2012-06-24 23:34:08 --> Router Class Initialized
+ERROR - 2012-06-24 23:34:08 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:34:12 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:34:12 --> URI Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Router Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Output Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Security Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Input Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:34:12 --> Language Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Language Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:34:12 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:34:12 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:34:12 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:34:12 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:34:12 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:34:12 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:34:12 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:34:12 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:34:12 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:34:12 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:34:12 --> Session Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:34:12 --> Session routines successfully run
+DEBUG - 2012-06-24 23:34:12 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> BlogController MX_Controller Initialized
+DEBUG - 2012-06-24 23:34:12 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:34:12 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:34:12 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> File loaded: ./application/modules/text/models/text.php
+DEBUG - 2012-06-24 23:34:12 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:12 --> File loaded: ./application/views/blog/show.php
+ERROR - 2012-06-24 23:34:12 --> Severity: Notice  --> Undefined variable: page D:\www\bmf\application\views\layouts\index.php 5
+DEBUG - 2012-06-24 23:34:12 --> File loaded: ./application/views/layouts/index.php
+DEBUG - 2012-06-24 23:34:12 --> Final output sent to browser
+DEBUG - 2012-06-24 23:34:12 --> Total execution time: 0.2606
+DEBUG - 2012-06-24 23:34:13 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:13 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:34:13 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:34:13 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:34:13 --> URI Class Initialized
+DEBUG - 2012-06-24 23:34:13 --> Router Class Initialized
+ERROR - 2012-06-24 23:34:13 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:34:19 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:19 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:34:19 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:34:19 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:34:19 --> URI Class Initialized
+DEBUG - 2012-06-24 23:34:19 --> Router Class Initialized
+ERROR - 2012-06-24 23:34:19 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:34:22 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:22 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:34:22 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:34:22 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:34:22 --> URI Class Initialized
+DEBUG - 2012-06-24 23:34:22 --> Router Class Initialized
+ERROR - 2012-06-24 23:34:22 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:34:26 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:34:26 --> URI Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Router Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Output Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Security Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Input Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:34:26 --> Language Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Language Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:34:26 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:34:26 --> Session Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:34:26 --> Session routines successfully run
+DEBUG - 2012-06-24 23:34:26 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> PostController MX_Controller Initialized
+DEBUG - 2012-06-24 23:34:26 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:34:26 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Model Class Initialized
+ERROR - 2012-06-24 23:34:26 --> Severity: Notice  --> Undefined index: previews_dir D:\www\bmf\application\controllers\post.php 24
+DEBUG - 2012-06-24 23:34:26 --> Model Class Initialized
+ERROR - 2012-06-24 23:34:26 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:34:26 --> XSS Filtering completed
+ERROR - 2012-06-24 23:34:26 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:34:26 --> XSS Filtering completed
+ERROR - 2012-06-24 23:34:26 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:34:26 --> XSS Filtering completed
+DEBUG - 2012-06-24 23:34:26 --> insert: INSERT INTO `comments` (`post_id`, `parent_id`, `text`, `user_id`, `added_at`) VALUES ('5', '', '111111', '4', '2012-06-24 23:34:26')
+DEBUG - 2012-06-24 23:34:26 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:34:26 --> URI Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Router Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Output Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Security Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Input Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:34:26 --> Language Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Language Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:34:26 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:34:26 --> Session Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:34:26 --> Session routines successfully run
+DEBUG - 2012-06-24 23:34:26 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> BlogController MX_Controller Initialized
+DEBUG - 2012-06-24 23:34:26 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:34:26 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:34:26 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> File loaded: ./application/modules/text/models/text.php
+DEBUG - 2012-06-24 23:34:26 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> Model Class Initialized
+DEBUG - 2012-06-24 23:34:26 --> File loaded: ./application/views/blog/show.php
+ERROR - 2012-06-24 23:34:26 --> Severity: Notice  --> Undefined variable: page D:\www\bmf\application\views\layouts\index.php 5
+DEBUG - 2012-06-24 23:34:26 --> File loaded: ./application/views/layouts/index.php
+DEBUG - 2012-06-24 23:34:26 --> Final output sent to browser
+DEBUG - 2012-06-24 23:34:26 --> Total execution time: 0.2617
+DEBUG - 2012-06-24 23:34:27 --> Config Class Initialized
+DEBUG - 2012-06-24 23:34:27 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:34:27 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:34:27 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:34:27 --> URI Class Initialized
+DEBUG - 2012-06-24 23:34:27 --> Router Class Initialized
+ERROR - 2012-06-24 23:34:27 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:35:21 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:21 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:21 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:21 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:21 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:21 --> Router Class Initialized
+DEBUG - 2012-06-24 23:35:21 --> Output Class Initialized
+DEBUG - 2012-06-24 23:35:21 --> Security Class Initialized
+DEBUG - 2012-06-24 23:35:21 --> Input Class Initialized
+DEBUG - 2012-06-24 23:35:21 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:35:21 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:21 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:21 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:21 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:35:21 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:35:21 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:35:21 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:35:21 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:35:21 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:35:21 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:35:21 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:35:21 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:35:21 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:35:21 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:35:21 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:35:21 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:35:22 --> Session Class Initialized
+DEBUG - 2012-06-24 23:35:22 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:35:22 --> Session routines successfully run
+DEBUG - 2012-06-24 23:35:22 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:22 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:22 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:35:22 --> BlogController MX_Controller Initialized
+DEBUG - 2012-06-24 23:35:22 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:35:22 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:35:22 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:22 --> File loaded: ./application/modules/text/models/text.php
+DEBUG - 2012-06-24 23:35:22 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:22 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:22 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:22 --> File loaded: ./application/views/blog/show.php
+ERROR - 2012-06-24 23:35:22 --> Severity: Notice  --> Undefined variable: page D:\www\bmf\application\views\layouts\index.php 5
+DEBUG - 2012-06-24 23:35:22 --> File loaded: ./application/views/layouts/index.php
+DEBUG - 2012-06-24 23:35:22 --> Final output sent to browser
+DEBUG - 2012-06-24 23:35:22 --> Total execution time: 0.2437
+DEBUG - 2012-06-24 23:35:23 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:23 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:23 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:23 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:23 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:23 --> Router Class Initialized
+ERROR - 2012-06-24 23:35:23 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:35:24 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:24 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:24 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:24 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:24 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:24 --> Router Class Initialized
+ERROR - 2012-06-24 23:35:24 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:35:26 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:26 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:26 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:26 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:26 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:26 --> Router Class Initialized
+ERROR - 2012-06-24 23:35:26 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:35:29 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:29 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Router Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Output Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Security Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Input Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:35:29 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:35:29 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:35:29 --> Session Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:35:29 --> Session routines successfully run
+DEBUG - 2012-06-24 23:35:29 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> PostController MX_Controller Initialized
+DEBUG - 2012-06-24 23:35:29 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:35:29 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Model Class Initialized
+ERROR - 2012-06-24 23:35:29 --> Severity: Notice  --> Undefined index: previews_dir D:\www\bmf\application\controllers\post.php 24
+DEBUG - 2012-06-24 23:35:29 --> Model Class Initialized
+ERROR - 2012-06-24 23:35:29 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:35:29 --> XSS Filtering completed
+ERROR - 2012-06-24 23:35:29 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:35:29 --> XSS Filtering completed
+ERROR - 2012-06-24 23:35:29 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:35:29 --> XSS Filtering completed
+DEBUG - 2012-06-24 23:35:29 --> insert: INSERT INTO `comments` (`post_id`, `parent_id`, `text`, `user_id`, `added_at`) VALUES ('5', '5', '111111', '4', '2012-06-24 23:35:29')
+DEBUG - 2012-06-24 23:35:29 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:29 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Router Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Output Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Security Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Input Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:35:29 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:35:29 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:35:29 --> Session Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:35:29 --> Session routines successfully run
+DEBUG - 2012-06-24 23:35:29 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> BlogController MX_Controller Initialized
+DEBUG - 2012-06-24 23:35:29 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:35:29 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:35:29 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> File loaded: ./application/modules/text/models/text.php
+DEBUG - 2012-06-24 23:35:29 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> File loaded: ./application/views/blog/show.php
+ERROR - 2012-06-24 23:35:29 --> Severity: Notice  --> Undefined variable: page D:\www\bmf\application\views\layouts\index.php 5
+DEBUG - 2012-06-24 23:35:29 --> File loaded: ./application/views/layouts/index.php
+DEBUG - 2012-06-24 23:35:29 --> Final output sent to browser
+DEBUG - 2012-06-24 23:35:29 --> Total execution time: 0.2833
+DEBUG - 2012-06-24 23:35:29 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:29 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:30 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:30 --> Router Class Initialized
+ERROR - 2012-06-24 23:35:30 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:35:32 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:32 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:32 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:32 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:32 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:32 --> Router Class Initialized
+ERROR - 2012-06-24 23:35:32 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:35:35 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:35 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Router Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Output Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Security Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Input Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:35:35 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:35:35 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:35:35 --> Session Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:35:35 --> Session routines successfully run
+DEBUG - 2012-06-24 23:35:35 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> PostController MX_Controller Initialized
+DEBUG - 2012-06-24 23:35:35 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:35:35 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Model Class Initialized
+ERROR - 2012-06-24 23:35:35 --> Severity: Notice  --> Undefined index: previews_dir D:\www\bmf\application\controllers\post.php 24
+DEBUG - 2012-06-24 23:35:35 --> Model Class Initialized
+ERROR - 2012-06-24 23:35:35 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:35:35 --> XSS Filtering completed
+ERROR - 2012-06-24 23:35:35 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:35:35 --> XSS Filtering completed
+ERROR - 2012-06-24 23:35:35 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:35:35 --> XSS Filtering completed
+DEBUG - 2012-06-24 23:35:35 --> insert: INSERT INTO `comments` (`post_id`, `parent_id`, `text`, `user_id`, `added_at`) VALUES ('5', '7', '222222', '4', '2012-06-24 23:35:35')
+DEBUG - 2012-06-24 23:35:35 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:35 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Router Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Output Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Security Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Input Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:35:35 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:35:35 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:35:35 --> Session Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:35:35 --> Session routines successfully run
+DEBUG - 2012-06-24 23:35:35 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> BlogController MX_Controller Initialized
+DEBUG - 2012-06-24 23:35:35 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:35:35 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:35:35 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> File loaded: ./application/modules/text/models/text.php
+DEBUG - 2012-06-24 23:35:35 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:35 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:36 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:36 --> File loaded: ./application/views/blog/show.php
+ERROR - 2012-06-24 23:35:36 --> Severity: Notice  --> Undefined variable: page D:\www\bmf\application\views\layouts\index.php 5
+DEBUG - 2012-06-24 23:35:36 --> File loaded: ./application/views/layouts/index.php
+DEBUG - 2012-06-24 23:35:36 --> Final output sent to browser
+DEBUG - 2012-06-24 23:35:36 --> Total execution time: 0.2878
+DEBUG - 2012-06-24 23:35:36 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:36 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:36 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:36 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:36 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:36 --> Router Class Initialized
+ERROR - 2012-06-24 23:35:36 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:35:37 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:37 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:37 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:37 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:37 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:37 --> Router Class Initialized
+ERROR - 2012-06-24 23:35:37 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:35:42 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:42 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Router Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Output Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Security Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Input Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:35:42 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:35:42 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:35:42 --> Session Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:35:42 --> Session routines successfully run
+DEBUG - 2012-06-24 23:35:42 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> PostController MX_Controller Initialized
+DEBUG - 2012-06-24 23:35:42 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:35:42 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Model Class Initialized
+ERROR - 2012-06-24 23:35:42 --> Severity: Notice  --> Undefined index: previews_dir D:\www\bmf\application\controllers\post.php 24
+DEBUG - 2012-06-24 23:35:42 --> Model Class Initialized
+ERROR - 2012-06-24 23:35:42 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:35:42 --> XSS Filtering completed
+ERROR - 2012-06-24 23:35:42 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:35:42 --> XSS Filtering completed
+ERROR - 2012-06-24 23:35:42 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:35:42 --> XSS Filtering completed
+DEBUG - 2012-06-24 23:35:42 --> insert: INSERT INTO `comments` (`post_id`, `parent_id`, `text`, `user_id`, `added_at`) VALUES ('5', '8', '33333', '4', '2012-06-24 23:35:42')
+DEBUG - 2012-06-24 23:35:42 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:42 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Router Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Output Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Security Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Input Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:35:42 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:35:42 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:35:42 --> Session Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:35:42 --> Session routines successfully run
+DEBUG - 2012-06-24 23:35:42 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> BlogController MX_Controller Initialized
+DEBUG - 2012-06-24 23:35:42 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:35:42 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:35:42 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> File loaded: ./application/modules/text/models/text.php
+DEBUG - 2012-06-24 23:35:42 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:42 --> File loaded: ./application/views/blog/show.php
+ERROR - 2012-06-24 23:35:42 --> Severity: Notice  --> Undefined variable: page D:\www\bmf\application\views\layouts\index.php 5
+DEBUG - 2012-06-24 23:35:42 --> File loaded: ./application/views/layouts/index.php
+DEBUG - 2012-06-24 23:35:42 --> Final output sent to browser
+DEBUG - 2012-06-24 23:35:42 --> Total execution time: 0.2912
+DEBUG - 2012-06-24 23:35:43 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:43 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:43 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:43 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:43 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:43 --> Router Class Initialized
+ERROR - 2012-06-24 23:35:43 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:35:46 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:46 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Router Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Output Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Security Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Input Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:35:46 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:35:46 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:35:46 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:35:46 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:35:46 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:35:46 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:35:46 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:35:46 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:35:46 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:35:46 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:35:46 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:35:46 --> Session Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:35:46 --> Session routines successfully run
+DEBUG - 2012-06-24 23:35:46 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> PostController MX_Controller Initialized
+DEBUG - 2012-06-24 23:35:46 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:35:46 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:35:46 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> Model Class Initialized
+ERROR - 2012-06-24 23:35:46 --> Severity: Notice  --> Undefined index: previews_dir D:\www\bmf\application\controllers\post.php 24
+ERROR - 2012-06-24 23:35:46 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:35:46 --> XSS Filtering completed
+DEBUG - 2012-06-24 23:35:46 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:46 --> update: UPDATE `comments` SET `deleted` = 1 WHERE `id` =  9
+DEBUG - 2012-06-24 23:35:46 --> Final output sent to browser
+DEBUG - 2012-06-24 23:35:46 --> Total execution time: 0.2731
+DEBUG - 2012-06-24 23:35:50 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:50 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:50 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:50 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:50 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:50 --> Router Class Initialized
+DEBUG - 2012-06-24 23:35:50 --> Output Class Initialized
+DEBUG - 2012-06-24 23:35:50 --> Security Class Initialized
+DEBUG - 2012-06-24 23:35:50 --> Input Class Initialized
+DEBUG - 2012-06-24 23:35:50 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:35:50 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:50 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:50 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:50 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:35:50 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:35:50 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:35:50 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:35:50 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:35:50 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:35:50 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:35:50 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:35:50 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:35:50 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:35:50 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:35:50 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:35:51 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:35:51 --> Session Class Initialized
+DEBUG - 2012-06-24 23:35:51 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:35:51 --> Session routines successfully run
+DEBUG - 2012-06-24 23:35:51 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:51 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:51 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:35:51 --> PostController MX_Controller Initialized
+DEBUG - 2012-06-24 23:35:51 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:35:51 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:35:51 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:51 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:51 --> Model Class Initialized
+ERROR - 2012-06-24 23:35:51 --> Severity: Notice  --> Undefined index: previews_dir D:\www\bmf\application\controllers\post.php 24
+ERROR - 2012-06-24 23:35:51 --> Severity: Notice  --> Undefined offset: 1 D:\www\bmf\application\helpers\input_helper.php 22
+DEBUG - 2012-06-24 23:35:51 --> XSS Filtering completed
+DEBUG - 2012-06-24 23:35:51 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:51 --> update: UPDATE `comments` SET `deleted` = 1 WHERE `id` =  5
+DEBUG - 2012-06-24 23:35:51 --> Final output sent to browser
+DEBUG - 2012-06-24 23:35:51 --> Total execution time: 0.2774
+DEBUG - 2012-06-24 23:35:55 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:55 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Router Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Output Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Security Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Input Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Global POST and COOKIE data sanitized
+DEBUG - 2012-06-24 23:35:55 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Language Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Loader Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Config file loaded: ./application/config/main.php
+DEBUG - 2012-06-24 23:35:55 --> Helper loaded: dump_helper
+DEBUG - 2012-06-24 23:35:55 --> Helper loaded: dc_helper
+DEBUG - 2012-06-24 23:35:55 --> Helper loaded: inflector_helper
+DEBUG - 2012-06-24 23:35:55 --> Helper loaded: url_helper
+DEBUG - 2012-06-24 23:35:55 --> Helper loaded: form_helper
+DEBUG - 2012-06-24 23:35:55 --> Helper loaded: input_helper
+DEBUG - 2012-06-24 23:35:55 --> Helper loaded: flash_helper
+DEBUG - 2012-06-24 23:35:55 --> Helper loaded: user_helper
+DEBUG - 2012-06-24 23:35:55 --> Helper loaded: comment_helper
+DEBUG - 2012-06-24 23:35:55 --> Database Driver Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Config file loaded: ./application/config/template.php
+DEBUG - 2012-06-24 23:35:55 --> Session Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Helper loaded: string_helper
+DEBUG - 2012-06-24 23:35:55 --> Session routines successfully run
+DEBUG - 2012-06-24 23:35:55 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Controller Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> BlogController MX_Controller Initialized
+DEBUG - 2012-06-24 23:35:55 --> Config file loaded: ./application/config/blog.php
+DEBUG - 2012-06-24 23:35:55 --> Helper loaded: blog_helper
+DEBUG - 2012-06-24 23:35:55 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> File loaded: ./application/modules/text/models/text.php
+DEBUG - 2012-06-24 23:35:55 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> Model Class Initialized
+DEBUG - 2012-06-24 23:35:55 --> File loaded: ./application/views/blog/show.php
+ERROR - 2012-06-24 23:35:55 --> Severity: Notice  --> Undefined variable: page D:\www\bmf\application\views\layouts\index.php 5
+DEBUG - 2012-06-24 23:35:55 --> File loaded: ./application/views/layouts/index.php
+DEBUG - 2012-06-24 23:35:55 --> Final output sent to browser
+DEBUG - 2012-06-24 23:35:55 --> Total execution time: 0.2806
+DEBUG - 2012-06-24 23:35:57 --> Config Class Initialized
+DEBUG - 2012-06-24 23:35:57 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:35:57 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:35:57 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:35:57 --> URI Class Initialized
+DEBUG - 2012-06-24 23:35:58 --> Router Class Initialized
+ERROR - 2012-06-24 23:35:58 --> 404 Page Not Found --> 
