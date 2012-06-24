@@ -105,7 +105,18 @@
 
         </div>
 
-        <script src="<?= site_url('static/js/bootstrap.min.js') ?>"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
+        <script type="text/javascript" src="<?= site_url('static/bootstrap/js/bootstrap.min.js') ?>"></script>
+        <script type="text/javascript">
+            $(function() {
+                hljs.initHighlightingOnLoad();  // source code highlighter
+                $('a.delete').click( BMF.Post.destroy );
+
+//                $('a.delcomment').click( AC.Comment.destroy );
+//                $('a.reply').click( AC.Comment.reply );
+//
+//                $('#select_comments').click( AC.Sidebar.show_comments );
+//                $('#select_reviews').click( AC.Sidebar.show_reviews );
+            });
+        </script>
     </body>
 </html>

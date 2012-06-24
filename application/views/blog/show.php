@@ -6,9 +6,11 @@ if( empty($post) ){
 ?>
 <div class="row">
     <div class="span12">
-        <h1><?= $post['title'] ?></h1>
-        <?= post_control($post) ?>
-        <?= $post['full'] ?>
+        <div id="post-<?=$post['id']?>">
+            <h1><?= $post['title'] ?></h1>
+            <?= post_control($post) ?>
+            <?= $post['full'] ?>
+        </div>
     </div>
 </div>
 

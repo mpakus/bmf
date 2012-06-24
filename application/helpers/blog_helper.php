@@ -59,6 +59,12 @@ function blog_type( $name ){
     return $types[$name];    
 }
 
+/**
+ * Buttons to edit, delete post
+ * 
+ * @param type $post
+ * @return type 
+ */
 function post_control( $post ){
     if( !user_signed_in() ) return;
     
@@ -69,8 +75,8 @@ function post_control( $post ){
     
     if( user_is('admin') OR ($user['id'] == $post['user_id']) ){ ?>
         <div class="btn-toolbar">
-        <a href="<?= site_url( 'post/form/'.$post['id'] ) ?>" class="btn btn-success "><i class="icon-pencil icon-white"></i> Редактировать</a>
-        <a href="#" class="btn btn-danger" id="destroy-<?= $post['id'] ?>"><i class="icon-trash icon-white"></i> Удалить</a>
+        <a href="<?= site_url( 'post/form/'.$post['id'] ) ?>" class="btn btn-success"><i class="icon-pencil icon-white"></i> Редактировать</a>
+        <a href="#" class="btn btn-danger delete" id="destroy-<?= $post['id'] ?>"><i class="icon-trash icon-white"></i> Удалить</a>
         </div>
     <? }
 }
@@ -78,7 +84,7 @@ function post_control( $post ){
 function post_link( $post ){
     $type = array_search( $post['type'], blog_types() );
     $alias = nice_title( $post['title'] );
-    return site_url( 'blog/'.$type.'/'.$post['id'].'/'.$alias.'.html' );
+    return site_url( 'blog/show/'.$post['id'].'.html' );
 }
 
 
