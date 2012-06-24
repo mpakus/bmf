@@ -1,6 +1,5 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-
     /**
     * Lj_reader
     *
@@ -24,11 +23,12 @@
             $username,          //LJ username
             $password,          //LJ password
             $posts,             //LJ posts array  
+            $users,             //LJ users
             $nlast,             //LJ lastN request parameter   
             $cur_last_date,     //LJ current last post date
             $cookie,            //LJ cookie 
-            $comments;          //Download comments? (true/false)       
-        
+            $comments;          //Download comments? (true/false)  
+               
         /**
         * Constructor
         * @param array $params Username/Password in array
@@ -54,11 +54,15 @@
             //Initializing posts array
             $this->posts = array();
             
+            //Initializing users array
+            $this->users = array();
+            
             //Finally, authorise
             $this->authorization();
             
             //And fetching first portion of posts
-            //$this->get_posts($this->username);
+            $this->get_posts($this->username);
+
         }
 
         /**
@@ -138,13 +142,28 @@
         }
         
         /**
+        * Method makes HTTP request to the LJ FOAF service
+        * @param string $user user name
+        */
+        protected function foaf_request($user)
+        {
+            if($user == '')
+                throw new Exception('LJ_reader[foaf_request]: user name must not be empty!');
+            
+            $context = $this->get_context(null);
+            $file = file_get_contents("http://".$user.".livejournal.com/data/foaf", false, $context);
+            
+            return $file;            
+        }
+        
+        /**
         * Method makes XML-RPC request to the API and returns posts
         * @param string $user Posts author name
         */
         protected function get_posts($user) 
         {
             
-            if($user == '') throw new Exception('LJ_reader[_get_posts]: User name must not equal to empty string!');                  
+            if($user == '') throw new Exception('LJ_reader[get_posts]: User name must not equal to empty string!');                  
 
             //Filling params array for request
             $params = array(
@@ -254,6 +273,10 @@
             $ret['postername'] = $comment['postername'];
             $ret['datepostunix'] = $comment['datepostunix'];
             
+            //Filling up user info (for non-anonym users)
+            if($comment['postername'] != '')
+                $this->get_user_info($comment['postername']);   
+            
             //If comment have childs - recursive search begins...
             if(!empty($comment['children'])) {
                 foreach($comment['children'] as $child) {
@@ -263,6 +286,94 @@
             
             //Return comment array
             return $ret;
+        }
+        
+        /**
+        * Method stores LJ user info in $this->users array (with foaf_request method)
+        * and returns user data in the hash array
+        * @param string $user user
+        */
+        protected function get_user_info($user)
+        {
+            //Check if $user is already in $this->users array
+            //If not - fetching his info
+            if($this->users[$user] == '') {
+                
+                //Making a HTTP request to the FOAF LJ service
+                $fethed_user = new SimpleXMLElement($this->foaf_request($user));
+                
+                //Nickname
+                $this->users[$user]['nick'] = (string) $fethed_user->children('foaf', true)->Person->
+                                                                     children('foaf', true)->nick;
+                //Full name
+                $this->users[$user]['name'] = (string) $fethed_user->children('foaf', true)->Person->
+                                                                     children('foaf', true)->name;
+                //Journal title
+                $this->users[$user]['journaltitle'] = (string) $fethed_user->children('foaf', true)->Person->
+                                                                             children('lj', true)->journaltitle;
+                //Journal subtitle
+                $this->users[$user]['journalsubtitle'] = (string) $fethed_user->children('foaf', true)->Person->
+                                                                                children('lj', true)->journalsubtitle;
+                //OpenID
+                if($fethed_user->children('foaf', true)->Person->children('foaf', true)->openid &&
+                   $fethed_user->children('foaf', true)->Person->children('foaf', true)->openid->
+                                 attributes()) {
+                    $attr = $fethed_user->children('foaf', true)->Person->children('foaf', true)->openid->
+                                      attributes('rdf', true);
+                    $this->users[$user]['openid'] = (string) $attr['resource'];
+                }
+                //Country                
+                if($fethed_user->children('foaf', true)->Person->children('ya', true)->country &&
+                   $fethed_user->children('foaf', true)->Person->children('ya', true)->country->
+                                 attributes()) {
+                    $attr = $fethed_user->children('foaf', true)->Person->children('ya', true)->country->
+                                      attributes('dc', true);
+                    $this->users[$user]['country'] = (string) $attr['title'];
+                }
+                //City
+                if($fethed_user->children('foaf', true)->Person->children('ya', true)->city &&
+                   $fethed_user->children('foaf', true)->Person->children('ya', true)->city->
+                                 attributes()) {
+                    $attr = $fethed_user->children('foaf', true)->Person->children('ya', true)->city->
+                                      attributes('dc', true);
+                    $this->users[$user]['city'] = (string) $attr['title'];
+                }
+                //Date of birth                
+                $this->users[$user]['date_of_bitrh'] = (string) $fethed_user->children('foaf', true)->Person->
+                                                                              children('foaf', true)->dateOfBirth;
+                //User image URL
+                if($fethed_user->children('foaf', true)->Person->children('foaf', true)->img &&
+                   $fethed_user->children('foaf', true)->Person->children('foaf', true)->img->
+                                 attributes()) {
+                        $attr = $fethed_user->children('foaf', true)->Person->children('foaf', true)->img->
+                                      attributes('rdf', true);
+                        $this->users[$user]['img'] = (string) $attr['resource'];
+                }
+                //ICQ
+                $this->users[$user]['icq'] = (string) $fethed_user->children('foaf', true)->Person->
+                                                                    children('foaf', true)->icqChatID;
+                //Biography
+                $this->users[$user]['bio'] = (string) $fethed_user->children('foaf', true)->Person->
+                                                                    children('ya', true)->bio;
+                //School (date start, date finish, school name)          
+                if($fethed_user->children('foaf', true)->Person->children('ya', true)->school &&
+                   $fethed_user->children('foaf', true)->Person->children('ya', true)->school->
+                                 attributes()) { 
+                    $attr = $fethed_user->children('foaf', true)->Person->children('ya', true)->school->
+                                      attributes('ya', true);
+                    $this->users[$user]['school']['date_start'] = (string) $attr['dateStart'];
+                    $this->users[$user]['school']['date_finish'] = (string) $attr['dateFinish'];
+                }
+                if($fethed_user->children('foaf', true)->Person->children('ya', true)->school &&
+                   $fethed_user->children('foaf', true)->Person->children('ya', true)->school->
+                                 attributes()) {
+                    $attr = $fethed_user->children('foaf', true)->Person->children('ya', true)->school->
+                                      attributes('dc', true);
+                    $this->users[$user]['school']['name'] = (string) $attr['title'];
+                } 
+            } 
+            
+            return $this->users[$user];
         }
         
         /* Iterator interface implementation */
