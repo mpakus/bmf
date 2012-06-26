@@ -6,7 +6,7 @@
     * @package	Import from social networks
     * @subpackage	Livejournal
     * @category	Data transfer
-    * @author	denied
+    * @author	Anton "denied" Lvov <ant.lvov@gmail.com>
     * @link	http://aomega.ru
     */
     class Lj_reader implements Iterator { 

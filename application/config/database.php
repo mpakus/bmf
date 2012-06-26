@@ -49,9 +49,9 @@ $active_group = 'development';
 $active_record = TRUE;
 
 $db['production']['hostname'] = 'localhost';
-$db['production']['username'] = 'applecrushru';
-$db['production']['password'] = '3ufEruyO3eVI';
-$db['production']['database'] = 'applecrushru';
+$db['production']['username'] = 'bmf';
+$db['production']['password'] = 'bmf';
+$db['production']['database'] = 'bmf';
 $db['production']['dbdriver'] = 'mysql';
 $db['production']['dbprefix'] = '';
 $db['production']['pconnect'] = TRUE;
@@ -66,8 +66,8 @@ $db['production']['stricton'] = FALSE;
 
 
 $db['development']['hostname'] = 'localhost';
-$db['development']['username'] = 'root';
-$db['development']['password'] = '900';
+$db['development']['username'] = 'bmf';
+$db['development']['password'] = 'bmf';
 $db['development']['database'] = 'bmf';
 $db['development']['dbdriver'] = 'mysql';
 $db['development']['dbprefix'] = '';
