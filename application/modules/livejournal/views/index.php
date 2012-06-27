@@ -5,7 +5,7 @@
 
     	<form method="POST" action="<?=site_url('livejournal/index')?>">
 
-    		<div class="error"><?php echo $error; ?></div>
+    		<div class="error"><?php echo validation_errors(); ?></div>
 
     		<table class="fields">
         		<tr><td>Логин:</td><td><input name="login" type="text" class="string size90p" /></td></tr>
