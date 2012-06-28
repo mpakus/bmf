@@ -185,7 +185,7 @@ class PostController extends MY_Controller {
         }
         $data = array(
             'post_id' => $post_id,
-            'name' => $module['name']
+            'name'    => $module['name']
         );
         $module_id = $this->module->add_new( $data );
         set_flash_ok( 'Отлично, новый модуль, давай заполним его' );

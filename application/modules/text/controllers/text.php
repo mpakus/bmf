@@ -12,7 +12,8 @@ class TextController extends MY_Module{
     }
         
     /**
-     *
+     * Render page for publishing
+     * 
      * @param type $post_id
      * @param type $module_id
      * @return type 
@@ -27,7 +28,8 @@ class TextController extends MY_Module{
     }
     
     /**
-     *
+     * Shows text editor form
+     * 
      * @param type $post_id
      * @param type $module_id
      * @return type 
@@ -38,19 +40,19 @@ class TextController extends MY_Module{
     }
     
     /**
-     * 
+     * Receive data from user, prepare and keep it our databse
      */
     public function save( $post_id, $module_id ){
         $data = array();
         $data['module_id'] = $module_id;
-        $data['full'] = param('full');
+        $data['original'] = param('original', TRUE, FALSE);
         $this->text->save( $data ); // keep in safe place ;)
         set_flash_ok('Текст сохранён');
         redirect( 'post/form/'.$post_id.'/'.$module_id.'#mod-'.$module_id );
     }
     
     /**
-     * 
+     * Delete text information from database
      */
     public function delete( $post_id='', $module_id='' ){
         if( empty($module_id) ) $module_id = $this->data['module_id'];                

@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Model for Text module
+ */
 class Text extends MY_Model{
     protected
         $table = DC_TEXTS_TABLE,
@@ -11,14 +14,16 @@ class Text extends MY_Model{
     }
 
 	/**
- 	 * Сохраняем данные, если нет id значит добавляем, иначе обновляем старое
+ 	 * Prepare the text fields and save them
      *
      * @param int $id
      * @return bool|int
 	 */
 	public function save( $data='' ){
-        if( !empty($data[$this->pkey]) ) $this->delete( $data[$this->pkey] );                
-		$this->insert($data);
+        if( !empty($data[$this->pkey]) ) $this->delete( $data[$this->pkey] );
+        $data['full']  = prepare_text( $data['original'] );
+        $data['short'] = mb_strcut( strip_tags_regular($data['full']), 0, 250 ); // @todo: 250 should be in CONFIG        
+		return parent::insert($data);
 	}
  
 }

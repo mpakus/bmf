@@ -9,15 +9,7 @@ if( empty($posts) ){
 <div class="row">
     <div class="span12">
         <? foreach( $posts as $post ){ ?>
-<<<<<<< HEAD
-        <div id="post-<?= $post['id'] ?>">
-            <h1><?= $post['title'] ?></h1>
-            <?= post_control($post) ?>
-            <?= $post['cut'] ?>
-            <a href="<?= site_url('blog/show/'.$post['id']) ?>" class="btn btn-info">Прочитать</a>
-            <hr/>
-        </div>
-=======
+
             <div id="post-<?=$post['id']?>">
                 <h1><a href="<?=post_link($post)?>"><?= $post['title'] ?></a></h1>
                 <?= post_control($post) ?>
@@ -25,7 +17,6 @@ if( empty($posts) ){
                 <a href="<?= site_url('blog/show/'.$post['id']) ?>" class="btn btn-info">Прочитать</a>
                 <hr/>
             </div>
->>>>>>> 2dab470ac8304b665edd02445d50a3d31623f1f8
         <? } ?>
     </div>
 </div>

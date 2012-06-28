@@ -2882,3 +2882,10 @@ DEBUG - 2012-06-24 23:35:57 --> UTF-8 Support Enabled
 DEBUG - 2012-06-24 23:35:57 --> URI Class Initialized
 DEBUG - 2012-06-24 23:35:58 --> Router Class Initialized
 ERROR - 2012-06-24 23:35:58 --> 404 Page Not Found --> 
+DEBUG - 2012-06-24 23:50:00 --> Config Class Initialized
+DEBUG - 2012-06-24 23:50:00 --> Hooks Class Initialized
+DEBUG - 2012-06-24 23:50:00 --> Utf8 Class Initialized
+DEBUG - 2012-06-24 23:50:00 --> UTF-8 Support Enabled
+DEBUG - 2012-06-24 23:50:00 --> URI Class Initialized
+DEBUG - 2012-06-24 23:50:00 --> Router Class Initialized
+ERROR - 2012-06-24 23:50:00 --> 404 Page Not Found --> 

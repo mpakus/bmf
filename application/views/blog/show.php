@@ -6,11 +6,7 @@ if( empty($post) ){
 ?>
 <div class="row">
     <div class="span12">
-<<<<<<< HEAD
-        <div id="post-<?= $post['id'] ?>">
-=======
         <div id="post-<?=$post['id']?>">
->>>>>>> 2dab470ac8304b665edd02445d50a3d31623f1f8
             <h1><?= $post['title'] ?></h1>
             <?= post_control($post) ?>
             <?= $post['full'] ?>

@@ -73,17 +73,15 @@ function post_control( $post ){
     
     $type = array_search( $post['type'], blog_types() ); // now we have got 'news' key
     
-    if( user_is('admin') OR ($user['id'] == $post['user_id']) ){ ?>
+    if( user_is('admin') OR ($user['id'] == $post['user_id']) ){
+        ?>
         <div class="btn-toolbar">
-<<<<<<< HEAD
-            <a href="<?= site_url( 'post/form/'.$post['id'] ) ?>" class="btn btn-success "><i class="icon-pencil icon-white"></i> Редактировать</a>
+            <a href="<?= site_url( 'post/form/'.$post['id'] ) ?>" class="btn btn-success"><i class="icon-pencil icon-white"></i> Редактировать</a>
             <a href="#" class="btn btn-danger delete" id="destroy-<?= $post['id'] ?>"><i class="icon-trash icon-white"></i> Удалить</a>
-=======
-        <a href="<?= site_url( 'post/form/'.$post['id'] ) ?>" class="btn btn-success"><i class="icon-pencil icon-white"></i> Редактировать</a>
-        <a href="#" class="btn btn-danger delete" id="destroy-<?= $post['id'] ?>"><i class="icon-trash icon-white"></i> Удалить</a>
->>>>>>> 2dab470ac8304b665edd02445d50a3d31623f1f8
         </div>
-    <? }
+        <?
+    
+    }
 }
 
 function post_link( $post ){
@@ -143,5 +141,3 @@ function post_end( $post ){
     </div>    
     <?
 }
-
-?>
