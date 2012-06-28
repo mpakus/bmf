@@ -333,22 +333,6 @@ class MY_Model extends CI_Model{
             //throw new Exception( 'method not exits' );
         }
     }
-/*
-    public function __get( $name ){
-       if (array_key_exists($name, $this->_data)) {
-            return $this->_data[$name];
-        }else
-            return $this->$name;
-    }
-
-
-    public function __set( $name, $value='' ){
-        $this->$name        = $value;
-        if( !is_object($value) ){
-            $this->_data[$name] = $value;
-        }
-    }
-*/
 
 	/**
 	 * Загрузка файла

@@ -41,11 +41,10 @@ function comment_form( $post_id ){
     ?>
     <a name="comment_form"></a>
     <form method="POST" action="<?= site_url('post/comment/'.$post_id) ?>" onSubmit="return AC.comment.on_submit()">
-        <p class="title">ВАШ КОММЕНТАРИЙ:</p>
         <input type="hidden" name="post_id" id="post_id" value="<?= form_prep($post_id) ?>"/>
         <input type="hidden" name="parent_id" id="parent_id" value="0" />
-        <textarea name="text" id="text" style="width:100%;height:195px"></textarea>
-        <input type="submit" value="Написать" class="button" />
+        <textarea name="text" id="text" style="width:90%;height:195px"></textarea><br/>
+        <input type="submit" value="Написать" class="btn btn-success" />
     </form>
     <?
 }

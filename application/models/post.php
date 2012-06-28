@@ -35,6 +35,7 @@ class Post extends MY_Model {
         // after that check tags, add them and link with our new post
         if( !empty($post['tags']) ) {
             $post['type'] = blog_type('post');
+            if( !isset($this->tag) ) $this->load->model('tag');
             $post['tags'] = $this->tag->save( $post );
             parent::save( $post );
         }

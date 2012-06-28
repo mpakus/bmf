@@ -26,4 +26,5 @@ class CutController extends MY_Module{
     public function form(){
         return '';
     }
+    
 }

@@ -148,6 +148,21 @@ class PostController extends MY_Controller {
         }
         return $this->data['modules'];
     }
+    
+    public function module_delete( $post_id, $module_id ){
+        $module = $this->module->find( $module_id, 1 );
+        if( empty($module) ){
+            set_flash_error( 'Не удалось найти этот модуль' );
+            redirect( 'post/form/'.$post_id );
+        }
+        
+        Modules::run( $module['name'].'/set_params', $post_id, $module['id'] );
+        Modules::run( $module['name'].'/delete', $post_id, $module_id );
+        
+        $this->module->delete( $module_id );
+        set_flash_ok( 'Блок успешно удалён' );
+        redirect( 'post/form/'.$post_id.'/'.$module_id );
+    }
 
     /**
      * Add new module to post
@@ -170,11 +185,11 @@ class PostController extends MY_Controller {
         }
         $data = array(
             'post_id' => $post_id,
-            'name' => $module['name']
+            'name'    => $module['name']
         );
         $module_id = $this->module->add_new( $data );
         set_flash_ok( 'Отлично, новый модуль, давай заполним его' );
-        redirect( 'post/form/'.$post_id.'/'.$module_id );
+        redirect( 'post/form/'.$post_id.'/'.$module_id.'#mod-'.$module_id );
     }
 
 

@@ -1,7 +1,7 @@
-var AC = {
+var BMF = {
     confirm: function( msg ){
-		return confirm( msg );
-	},
+	return confirm( msg );
+    },
     
     message_ok: function ( msg, title ){
         if( title=='' ) title = 'Информация';
@@ -16,7 +16,7 @@ var AC = {
 
     message_error: function ( msg, title ){
         if( title=='' ) title = 'Ошибка';
-        $.pnotify({
+        $.pnotify({ 
             pnotify_title: title,
             pnotify_text: msg,
             pnotify_notice_icon: "pnotify_error_icon ui-icon-alert",
@@ -27,8 +27,8 @@ var AC = {
     },
     
     check_status : function( data ){
-        if( data.error ) return AC.message_error( data.error );
-        if( data.ok )    return AC.message_ok( data.ok );
+        if( data.error ) return BMF.message_error( data.error );
+        if( data.ok )    return BMF.message_ok( data.ok );
     },
     
     get_id : function( str ){
@@ -37,13 +37,13 @@ var AC = {
     }
 };
 
-AC.Blog = {
+BMF.Blog = {
     id : '',
     
     vote : function( e ){
         var attr = $(this).parent().attr('id').split('-');
         if( attr[1] == '' ) return false;
-        AC.Blog.id = attr[1];
+        BMF.Blog.id = attr[1];
         
         $.ajax({
             type : 'POST',
@@ -51,28 +51,28 @@ AC.Blog = {
             data : {
               'id'    : attr[1]
             },
-            success  : AC.Blog.after_vote,
+            success  : BMF.Blog.after_vote,
             dataType : 'JSON'
         });
         return false;
     },
 
     after_vote : function( data ){
-        if( data.error ) return AC.message_error( data.error );
+        if( data.error ) return BMF.message_error( data.error );
         if( data.ok ){
-            AC.message_ok( data.ok );
+            BMF.message_ok( data.ok );
             // and update rating
-            $('#rating-'+AC.Blog.id+' span').html( data.rating );
+            $('#rating-'+BMF.Blog.id+' span').html( data.rating );
         }
         return true;
     }
 };
 
-AC.Post = {
+BMF.Post = {
     destroy : function( e ){
-        var id = AC.get_id( $(this).attr('id') );
+        var id = BMF.get_id( $(this).attr('id') );
         if( id == '' ) return false;
-        if( !AC.confirm('Вы уверены, что хотите удалить этот топик?') ) return false;
+        if( !BMF.confirm('Вы уверены, что хотите удалить этот топик?') ) return false;
         
         $.ajax({
             type : 'POST',
@@ -80,22 +80,22 @@ AC.Post = {
             data : {
               'id'    : id
             },
-            success  : AC.Post.after_destroy,
+            success  : BMF.Post.after_destroy,
             dataType : 'JSON'
         });
         return false;        
     },
     
     after_destroy : function( data ){
-        AC.check_status( data );
+        BMF.check_status( data );
         // hide it
         $('#post-'+data.id).hide('slow');
     }
 };
 
-AC.Comment = {
+BMF.Comment = {
     reply : function( e ){
-        var id = AC.get_id( $(this).attr('id') );
+        var id = BMF.get_id( $(this).attr('id') );
         $('.comment').removeClass( 'replayed' );
         $('#comment-'+id).addClass( 'replayed' );
         $('#parent_id').val( id );
@@ -103,16 +103,16 @@ AC.Comment = {
     },
     on_submit : function(){
         if( $('#text').val() == '' ){
-            AC.message_error( 'Извините, вам надо бы текст комментария написать' );
+            BMF.message_error( 'Извините, вам надо бы текст комментария написать' );
             return false;
         }
         return true;
     },
     
     destroy : function( e ){
-        var id = AC.get_id( $(this).attr('id') );
+        var id = BMF.get_id( $(this).attr('id') );
         if( id == '' ) return false;
-        if( !AC.confirm('Вы уверены, что хотите удалить этот комментарий?') ) return false;
+        if( !BMF.confirm('Вы уверены, что хотите удалить этот комментарий?') ) return false;
         
         $.ajax({
             type : 'POST',
@@ -120,56 +120,15 @@ AC.Comment = {
             data : {
               'id'    : id
             },
-            success  : AC.Comment.after_destroy,
+            success  : BMF.Comment.after_destroy,
             dataType : 'JSON'
         });
         return false;        
     },
     
     after_destroy : function( data ){
-        AC.check_status( data );
+        BMF.check_status( data );
         // hide it
         $('#comment-'+data.id).hide('slow');
     }    
-};
-
-AC.Subscribe = {
-    on_submit : function(){
-        
-        var email = $('#email').val();
-        if( email == '' ){
-           DC.message_error( 'Вы наверное забыли указать своё E-mail?!' );           
-        }else{
-            $.ajax({
-                type : 'POST',
-                url  : '/blog/subscribe/',
-                data : {
-                  'email'    : email
-                },
-                success  : AC.Subscribe.after_submit,
-                dataType : 'JSON'
-            });           
-        }
-        return false;
-    },
-    
-    after_submit : function( data ){
-        AC.check_status( data );
-        // hide it
-        $('#email').val( '' );
-    } 
-};
-
-AC.Sidebar = {
-    show_comments : function(){
-        $('#last_reviews').hide('slow');
-        $('#last_comments').show('slow');
-        return false;
-    },
-    
-    show_reviews : function(){
-        $('#last_comments').hide('slow');
-        $('#last_reviews').show('slow');
-        return false;
-    }        
 };

@@ -1,19 +1,19 @@
 <?php
 
-class TextController extends MY_Module{
+class PhotoController extends MY_Module{
     protected
-        $view = 'text/'
+        $view = 'photo/'
     ;
     
     public function __construct(){
         parent::__construct();
         user_can_rule();
-        $this->load->model( array('text') );
+        $this->load->model( array('photo') );
+        $this->photo->file_dir = FCPATH.'/files/photo/';
     }
         
     /**
-     * Render page for publishing
-     * 
+     *
      * @param type $post_id
      * @param type $module_id
      * @return type 
@@ -28,8 +28,7 @@ class TextController extends MY_Module{
     }
     
     /**
-     * Shows text editor form
-     * 
+     *
      * @param type $post_id
      * @param type $module_id
      * @return type 
@@ -40,19 +39,25 @@ class TextController extends MY_Module{
     }
     
     /**
-     * Receive data from user, prepare and keep it our databse
+     * 
      */
     public function save( $post_id, $module_id ){
         $data = array();
+        
         $data['module_id'] = $module_id;
-        $data['original'] = param('original', TRUE, FALSE);
-        $this->text->save( $data ); // keep in safe place ;)
-        set_flash_ok('Текст сохранён');
+        $data['alt'] = param('alt');
+        
+        if( !empty($_FILE['image']) ){
+            $this->photo->upload( 'image' );
+            $data['image'] = $this->photo->file_name;
+        }        
+        $this->photo->save( $data ); // keep in safe place ;)
+        set_flash_ok('Картиночка сохранена');
         redirect( 'post/form/'.$post_id.'/'.$module_id.'#mod-'.$module_id );
     }
     
     /**
-     * Delete text information from database
+     * 
      */
     public function delete( $post_id='', $module_id='' ){
         if( empty($module_id) ) $module_id = $this->data['module_id'];                

@@ -7,7 +7,6 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <!-- Le styles -->
         <link href="<?= site_url('static/bootstrap/css/bootstrap.min.css') ?>" rel="stylesheet">
         <style type="text/css">
             body {
@@ -32,6 +31,8 @@
         <script type="text/javascript" src="<?= site_url('static/js/jquery-1.7.2.min.js') ?>"></script>
         <script type="text/javascript" src="<?= site_url('static/js/bmf.js') ?>"></script>
         <script type="text/javascript" src="<?= site_url('static/js/jquery.pnotify.min.js') ?>"></script>
+        <script type="text/javascript" src="<?= site_url('static/jqueryui/jquery-ui-1.8.19.custom.min.js') ?>"></script>
+        
         <script type="text/javascript" src="http://yandex.st/highlightjs/6.2/highlight.min.js"></script>
     </head>
 
@@ -46,7 +47,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">BMF</a>
+                    <a class="brand" href="/">BMF</a>
                     <div class="nav-collapse">
                         <ul class="nav">
                             <li class="active"><a href="/">Blog</a></li>
@@ -72,7 +73,7 @@
 
         <div class="container">
             <?= $content ?>
-            <!-- 
+<!-- 
             <div class="hero-unit">
                 <h1>Hello, world!</h1>
                 <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
@@ -102,10 +103,20 @@
             <footer>
                 <p>&copy; <a href="http://aomega.ru">AOmega.ru</a> 2012</p>
             </footer>
-
         </div>
 
-        <script src="<?= site_url('static/js/bootstrap.min.js') ?>"></script>
-        <script>hljs.initHighlightingOnLoad();</script>
+        <script type="text/javascript" src="<?= site_url('static/bootstrap/js/bootstrap.min.js') ?>"></script>
+        <script type="text/javascript">
+            $(function() {
+                hljs.initHighlightingOnLoad();  // source code highlighter
+                $('a.delete').click( BMF.Post.destroy );
+
+                $('a.delcomment').click( BMF.Comment.destroy );
+                $('a.reply').click( BMF.Comment.reply );
+//
+//                $('#select_comments').click( AC.Sidebar.show_comments );
+//                $('#select_reviews').click( AC.Sidebar.show_reviews );
+            });
+        </script>
     </body>
 </html>

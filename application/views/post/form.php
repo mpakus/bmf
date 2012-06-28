@@ -29,16 +29,21 @@
 
     <div class="row">
         <div class="span12">        
-        <ul>
+        <ul class="m-list">
         <? foreach( $modules as $module ){ ?>
             <li>
-                <div id="title_<?= $module['id']?>">
+                <a name="mod-<?= $module['id'] ?>"></a>
+                <div id="title_<?= $module['id']?>" class="row module-title">
                     <strong><?= $module['name'] ?></strong>
                     <? if( $module['id'] != $module_id ){ ?>
-                        <?= anchor('post/form/'.$post['id'].'/'.$module['id'], 'Редактировать') ?>
+                        <span class="module-control">
+                        <a href="<?= site_url('post/form/'.$post['id'].'/'.$module['id'].'#mod-'.$module['id'] ) ?>" class="btn btn-info"><i class="icon-pencil icon-white"></i> Редактировать</a>
+                        <a href="<?= site_url( 'post/module_delete/'.$post['id'].'/'.$module['id']) ?>" class="btn btn-danger confirm"><i class="icon-trash icon-white"></i> Удалить</a>
+                        </span>
                     <? } ?>
                 </div>
-                <div id="module_<?= $module['id']?>">
+                <br class="clear"/>
+                <div id="module_<?= $module['id']?>" class="row">
                     <?= $module['output'] ?>
                 </div>
             </li>

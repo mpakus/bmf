@@ -1,9 +1,9 @@
 <?php
 
-class Text extends MY_Model{
+class Photo extends MY_Model{
     protected
-        $table = DC_TEXTS_TABLE,
-        $pkey  = 'post_id'
+        $table = DC_PHOTOS_TABLE,
+        $pkey  = 'module_id'
     ;
     
     public function __construct(){
