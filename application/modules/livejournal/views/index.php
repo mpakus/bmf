@@ -1,7 +1,7 @@
 	<h1>LJ posts import</h1>
 	<div class="row">
 
-<?php if(!$lj_authorized) { ?>
+<?php if(!($lj_authorized)) { ?>
 
     	<form method="POST" action="<?=site_url('livejournal/index')?>">
 
@@ -18,6 +18,6 @@
 
 <?php } else { ?>
 
-	Thanks for entering your credentials! Your posts import will begin immediately! 
+	
 
 <?php } ?>
