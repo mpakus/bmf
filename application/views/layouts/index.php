@@ -105,6 +105,7 @@
             </footer>
         </div>
 
+<<<<<<< HEAD
         <script src="<?= site_url('static/bootstrap/js/bootstrap.min.js') ?>"></script>
         <script type="text/javascript">
             $(function(){
@@ -119,6 +120,19 @@
                 $('a.reply').click( AC.Comment.reply );
                 
                 hljs.initHighlightingOnLoad();
+=======
+        <script type="text/javascript" src="<?= site_url('static/bootstrap/js/bootstrap.min.js') ?>"></script>
+        <script type="text/javascript">
+            $(function() {
+                hljs.initHighlightingOnLoad();  // source code highlighter
+                $('a.delete').click( BMF.Post.destroy );
+
+                $('a.delcomment').click( BMF.Comment.destroy );
+                $('a.reply').click( BMF.Comment.reply );
+//
+//                $('#select_comments').click( AC.Sidebar.show_comments );
+//                $('#select_reviews').click( AC.Sidebar.show_reviews );
+>>>>>>> 2dab470ac8304b665edd02445d50a3d31623f1f8
             });
         </script>
     </body>
