@@ -16,8 +16,7 @@ class BlogController extends MY_Controller{
      * @param type $page 
      */
     public function index( $page=0 ){
-//        $this->template->set_layout( 'layouts/index' );
-//        $this->pagination( 'blog/index/page', $this->post->count_top_reviews_and_video() );
+
         $this->data['posts'] = $this->post->find_published( $this->settings['post_per_page'], $page );
         $this->template->render_to( 'content', $this->view.'index', $this->data );
         $this->draw();
