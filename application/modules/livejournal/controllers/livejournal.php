@@ -43,8 +43,8 @@
 					
 				//Loading LJ_Reader library
 				$params = array(
-							'username' => $_GET['lj_user'],			//LJ login
-							'password' => $_GET['lj_password'],		//LJ password
+							'username' => $_GET['lj_user'],				//LJ login
+							'password' => $_GET['lj_password'],			//LJ password
 							'prefetch' => false, 						//We want to fetch posts manually
 							'nlast'	 => $nlast							//Fetch N last records
 				);
@@ -66,7 +66,9 @@
 				}
 
 				if($nposts == $nlast) {
-					redirect(current_url().'?lj_authorized=1&beforedate='.$beforedate.'&lj_user='.$_GET['lj_user'].'&lj_password='.$_GET['lj_password']);
+					redirect(current_url() . '?lj_authorized=1&beforedate=' . $beforedate . '&lj_user=' . $_GET['lj_user'] . '&lj_password=' . $_GET['lj_password'] . '&ntotal=' . ($_GET['ntotal'] + $nposts));
+				} else {
+					$this->data['import_complete'] = 'Импорт постов из жж завершен успешно. Добавлено записей : ' . ($_GET['ntotal'] + $nposts);
 				} 
 
 			//If user just entered user data - validate it and redirect with lj_authorized=true		
@@ -107,9 +109,6 @@
 		private function create_post($i_userid, $i_title, $i_content) 
 		{
 		
-			//$i_title =  utf8_decode($i_title);
-			//$i_content = utf8_decode($i_content);
-
 			//Creating the post
 			$post = array(
                 'title'   => $i_title,

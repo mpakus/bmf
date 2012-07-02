@@ -18,6 +18,6 @@
 
 <?php } else { ?>
 
-	
+	<?php echo $import_complete; ?>
 
 <?php } ?>
