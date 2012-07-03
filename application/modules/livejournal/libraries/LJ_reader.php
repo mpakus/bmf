@@ -6,7 +6,7 @@
     * @package	Import from social networks
     * @subpackage	Livejournal
     * @category	Data transfer
-    * @author	denied
+    * @author	Anton "denied" Lvov <ant.lvov@gmail.com>
     * @link	http://aomega.ru
     */
     class Lj_reader implements Iterator { 
@@ -31,7 +31,7 @@
                
         /**
         * Constructor
-        * @param array $params Username/Password in array
+        * @param array $params Username/Password in array, Nlast records, prefetch true/false
         */
         public function __construct($params) 
         {
@@ -59,9 +59,9 @@
             
             //Finally, authorise
             $this->authorization();
-            
-            //And fetching first portion of posts
-            $this->get_posts($this->username);
+
+            //And get the first portion of posts (if prefetch is enabled)
+            if($params['prefetch'] == true) $this->fetch_posts($this->username);
 
         }
 
@@ -160,10 +160,12 @@
         * Method makes XML-RPC request to the API and returns posts
         * @param string $user Posts author name
         */
-        protected function get_posts($user) 
+        public function fetch_posts($user = '', $beforedate = '') 
         {
             
-            if($user == '') throw new Exception('LJ_reader[get_posts]: User name must not equal to empty string!');                  
+            if($user == '') $user = $this->username;
+            if($user == '') throw new Exception('LJ_reader[fetch_posts]: User name must not equal to empty string!');                  
+            if($beforedate == '') $beforedate = $this->cur_last_date;
 
             //Filling params array for request
             $params = array(
@@ -174,7 +176,7 @@
                 'lineendings' => 'unix',
                 'ver' => '1',
                 'usejournal' => $user,
-                'beforedate' => $this->cur_last_date
+                'beforedate' => $beforedate
             );
             
             //Sending request 
@@ -182,7 +184,7 @@
             
             //If response is fault - throw an exception
             if (xmlrpc_is_fault($this->response)) {
-                throw new Exception('LJ_reader[get_posts]: XML-RPC error while receiving posts. ' . 
+                throw new Exception('LJ_reader[fetch_posts]: XML-RPC error while receiving posts. ' . 
                                     'Code = ' . $this->response['faultCode'] . ' ' .
                                     'ErrorString = ' . $this->response['faultString']
                                     ); 
@@ -199,13 +201,18 @@
                     
                     //If comments is true - fetching the comments
                     if($this->comments) {
-                        $this->posts[$item['itemid']]['comments'] = $this->get_comments($user, $item['itemid']*256 + $item['anum']);
+                        $this->posts[$item['itemid']]['comments'] = $this->fetch_comments($user, $item['itemid']*256 + $item['anum']);
                     }
                     
+                    //Put current post to the return array 
+                    $ret[$item['itemid']] = $this->posts[$item['itemid']];    
+
                     $this->cur_last_date = $item['eventtime'];
                     
                 }
             }
+
+            return $ret;
             
         }
         
@@ -214,11 +221,11 @@
         * @param string $user Posts author name
         * @param number $ditemid Posts ditemid = jitemid*256 + anum 
         */
-        protected function get_comments($user, $ditemid) 
+        protected function fetch_comments($user, $ditemid) 
         {
             
-            if($user == '') throw new Exception('LJ_reader[get_comments]: User name must not equal to empty string!');                  
-            if($ditemid == '') throw new Exception('LJ_reader[get_comments]: ditemid name must not equal to empty string!');                  
+            if($user == '') throw new Exception('LJ_reader[fetch_comments]: User name must not equal to empty string!');                  
+            if($ditemid == '') throw new Exception('LJ_reader[fetch_comments]: ditemid name must not equal to empty string!');                  
             
             //Return array
             $ret = array();
@@ -239,7 +246,7 @@
             
             //If response is fault - throw an exception
             if (xmlrpc_is_fault($this->response)) {
-                throw new Exception('LJ_reader[get_comments]: XML-RPC error while receiving posts. ' . 
+                throw new Exception('LJ_reader[fetch_comments]: XML-RPC error while receiving posts. ' . 
                                     'Code = ' . $this->response['faultCode'] . ' ' .
                                     'ErrorString = ' . $this->response['faultString']
                                     ); 
@@ -247,7 +254,7 @@
                 //Filling up $ret array with a nested comments
                 if(!empty($this->response['comments'])) {
                     foreach($this->response['comments'] as $comment) {
-                        $ret[] = $this->get_comment_info($comment); 
+                        $ret[] = $this->fetch_comment_info($comment); 
                     }
                 }
             }
@@ -260,7 +267,7 @@
         * Method makes recursive view into the each comment tree
         * @param array $comment Comment
         */
-        protected function get_comment_info($comment)
+        protected function fetch_comment_info($comment)
         {
             //Returning array
             $ret = array();
@@ -275,12 +282,12 @@
             
             //Filling up user info (for non-anonym users)
             if($comment['postername'] != '')
-                $this->get_user_info($comment['postername']);   
+                $this->fetch_user_info($comment['postername']);   
             
             //If comment have childs - recursive search begins...
             if(!empty($comment['children'])) {
                 foreach($comment['children'] as $child) {
-                    $ret['children'][] = $this->get_comment_info($child);
+                    $ret['children'][] = $this->fetch_comment_info($child);
                 }
             }
             
@@ -293,7 +300,7 @@
         * and returns user data in the hash array
         * @param string $user user
         */
-        protected function get_user_info($user)
+        protected function fetch_user_info($user)
         {
             //Check if $user is already in $this->users array
             //If not - fetching his info
@@ -390,7 +397,7 @@
         public function next()
         {
             if ((key($this->posts) + 1) % $this->nlast == 0)
-                $this->get_posts($this->username);
+                $this->fetch_posts($this->username);
             return next($this->posts);
         }
         
