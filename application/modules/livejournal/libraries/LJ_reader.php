@@ -31,6 +31,7 @@
                
         /**
         * Constructor
+        *
         * @param array $params Username/Password in array, Nlast records, prefetch true/false
         */
         public function __construct($params) 
@@ -80,7 +81,8 @@
         }
 
         /**
-         * @method get_cookie returns current lj cookie
+         * Methos returns current lj cookie
+         *
          * @return string LJ cookie 
          */
         public function get_cookie() 
@@ -126,6 +128,7 @@
 
         /**
         * Method returns context for the POST request to the API
+        *
         * @param string $request XML-RPC request
         * @return resource
         */
@@ -149,6 +152,7 @@
 
         /**
         * Method makes XML-RPC request to the API
+        *
         * @param string $procedure Procedure's name
         * @param array $params Request's information
         */
@@ -166,6 +170,7 @@
         
         /**
         * Method makes HTTP request to the LJ FOAF service
+        *
         * @param string $user user name
         */
         protected function foaf_request($user)
@@ -181,6 +186,7 @@
         
         /**
         * Method makes XML-RPC request to the API and returns posts
+        *
         * @param string $user Posts author name
         */
         public function fetch_posts($user = '', $beforedate = '') 
@@ -241,6 +247,7 @@
         
         /**
         * Method makes XML-RPC request to the API and returns comments
+        *
         * @param string $user Posts author name
         * @param number $ditemid Posts ditemid = jitemid*256 + anum 
         */
@@ -288,6 +295,7 @@
         
         /**
         * Method makes recursive view into the each comment tree
+        *
         * @param array $comment Comment
         */
         protected function fetch_comment_info($comment)
@@ -320,6 +328,7 @@
         
         /**
         * Method stores LJ user info in $this->users array (with foaf_request method)
+        *
         * and returns user data in the hash array
         * @param string $user user
         */

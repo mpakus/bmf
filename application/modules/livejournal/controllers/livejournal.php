@@ -5,14 +5,20 @@
      		$view = 'livejournal/'
     	;
 
+        /**
+         * Constructor 
+         */
     	public function _construct()
     	{
 			parent::_construct();
 			user_can_rule();
-		}
+	}
 
-		public function index() 
-		{
+        /**
+         * Index default method. Main LJ import logic implements here. 
+         */
+	public function index() 
+	{
 			//Loading necessary libs and models
 			$this->load->library( array('form_validation','session') );
 			$this->load->model( array('post','tag','module') );
@@ -140,6 +146,10 @@
 
 		/**
 		* Method implements post create
+                * 
+                * @param string $i_userid BMF user ID
+                * @param string $i_title Post title (subject)
+                * @param string $i_content Post contents
 		*/
 		private function create_post($i_userid, $i_title, $i_content) 
 		{
