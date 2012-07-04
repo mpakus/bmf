@@ -36,35 +36,58 @@
         public function __construct($params) 
         {
             //If either username or password are empty - throw an exception 
-            if($params['username'] == '' || $params['password'] == '')
-                throw new Exception('LJ_reader[__construct]: Username and password must not be empty!');
-            
+            if($params['username'] == '')
+                throw new Exception('LJ_reader[__construct]: Username must not be empty!');
+         
+            if($params['password'] == '' and $params['cookie'] == '')
+                throw new Exception('LJ_reader[__construct]: Password or cookie must not be empty!');
+         
             //Filling up username and password
             $this->username = $params['username'];
-            $this->password = $params['password'];
             
             //Filling lastN parameter (default value = 10)
             if($params['nlast'] == '') $this->nlast = 10;
             else $this->nlast = $params['nlast'];
-            
+ 
             //Filling download comments flag
             if($params['comments'] == true) $this->comments = true;
             else $this->comments = false;
-                   
+
             //Initializing posts array
             $this->posts = array();
-            
+
             //Initializing users array
             $this->users = array();
             
-            //Finally, authorise
-            $this->authorization();
+            //If cookie is filled - set cookie
+            if ($params['cookie'] != '') {
+                
+                $this->cookie = $params['cookie'];
+                
+              //If password is filled - do authorization  
+            } elseif($params['password'] != '') {
+                
+                $this->password = $params['password'];
 
+                //Finally, authorise
+                $this->authorization();
+                
+            } 
+            
             //And get the first portion of posts (if prefetch is enabled)
             if($params['prefetch'] == true) $this->fetch_posts($this->username);
 
         }
 
+        /**
+         * @method get_cookie returns current lj cookie
+         * @return string LJ cookie 
+         */
+        public function get_cookie() 
+        {
+            return $this->cookie;
+        }
+        
         /**
         * Method gets a cookie from LJ 
         */
@@ -178,7 +201,7 @@
                 'usejournal' => $user,
                 'beforedate' => $beforedate
             );
-            
+
             //Sending request 
             $this->request('getevents', $params);
             
