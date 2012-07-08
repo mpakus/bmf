@@ -338,78 +338,88 @@
             //If not - fetching his info
             if($this->users[$user] == '') {
                 
-                //Making a HTTP request to the FOAF LJ service
-                $fethed_user = new SimpleXMLElement($this->foaf_request($user));
+                //Making a HTTP request to the FOAF LJ service                        
+                $response = $this->foaf_request($user);              
                 
-                //Nickname
-                $this->users[$user]['nick'] = (string) $fethed_user->children('foaf', true)->Person->
-                                                                     children('foaf', true)->nick;
-                //Full name
-                $this->users[$user]['name'] = (string) $fethed_user->children('foaf', true)->Person->
-                                                                     children('foaf', true)->name;
-                //Journal title
-                $this->users[$user]['journaltitle'] = (string) $fethed_user->children('foaf', true)->Person->
-                                                                             children('lj', true)->journaltitle;
-                //Journal subtitle
-                $this->users[$user]['journalsubtitle'] = (string) $fethed_user->children('foaf', true)->Person->
-                                                                                children('lj', true)->journalsubtitle;
-                //OpenID
-                if($fethed_user->children('foaf', true)->Person->children('foaf', true)->openid &&
-                   $fethed_user->children('foaf', true)->Person->children('foaf', true)->openid->
-                                 attributes()) {
-                    $attr = $fethed_user->children('foaf', true)->Person->children('foaf', true)->openid->
-                                      attributes('rdf', true);
-                    $this->users[$user]['openid'] = (string) $attr['resource'];
+                libxml_use_internal_errors(true);
+                $check = simplexml_load_string($response);
+                if (!$check) {
+                    $this->users[$user]['nick'] = $user;
+                    $this->users[$user]['deleted'] = true;                
+                } else {
+                
+                        $fethed_user = new SimpleXMLElement($response);
+
+                        //Nickname
+                        $this->users[$user]['nick'] = (string) $fethed_user->children('foaf', true)->Person->
+                                                                            children('foaf', true)->nick;
+                        //Full name
+                        $this->users[$user]['name'] = (string) $fethed_user->children('foaf', true)->Person->
+                                                                            children('foaf', true)->name;
+                        //Journal title
+                        $this->users[$user]['journaltitle'] = (string) $fethed_user->children('foaf', true)->Person->
+                                                                                    children('lj', true)->journaltitle;
+                        //Journal subtitle
+                        $this->users[$user]['journalsubtitle'] = (string) $fethed_user->children('foaf', true)->Person->
+                                                                                        children('lj', true)->journalsubtitle;
+                        //OpenID
+                        if($fethed_user->children('foaf', true)->Person->children('foaf', true)->openid &&
+                        $fethed_user->children('foaf', true)->Person->children('foaf', true)->openid->
+                                        attributes()) {
+                            $attr = $fethed_user->children('foaf', true)->Person->children('foaf', true)->openid->
+                                            attributes('rdf', true);
+                            $this->users[$user]['openid'] = (string) $attr['resource'];
+                        }
+                        //Country                
+                        if($fethed_user->children('foaf', true)->Person->children('ya', true)->country &&
+                        $fethed_user->children('foaf', true)->Person->children('ya', true)->country->
+                                        attributes()) {
+                            $attr = $fethed_user->children('foaf', true)->Person->children('ya', true)->country->
+                                            attributes('dc', true);
+                            $this->users[$user]['country'] = (string) $attr['title'];
+                        }
+                        //City
+                        if($fethed_user->children('foaf', true)->Person->children('ya', true)->city &&
+                        $fethed_user->children('foaf', true)->Person->children('ya', true)->city->
+                                        attributes()) {
+                            $attr = $fethed_user->children('foaf', true)->Person->children('ya', true)->city->
+                                            attributes('dc', true);
+                            $this->users[$user]['city'] = (string) $attr['title'];
+                        }
+                        //Date of birth                
+                        $this->users[$user]['date_of_bitrh'] = (string) $fethed_user->children('foaf', true)->Person->
+                                                                                    children('foaf', true)->dateOfBirth;
+                        //User image URL
+                        if($fethed_user->children('foaf', true)->Person->children('foaf', true)->img &&
+                        $fethed_user->children('foaf', true)->Person->children('foaf', true)->img->
+                                        attributes()) {
+                                $attr = $fethed_user->children('foaf', true)->Person->children('foaf', true)->img->
+                                            attributes('rdf', true);
+                                $this->users[$user]['img'] = (string) $attr['resource'];
+                        }
+                        //ICQ
+                        $this->users[$user]['icq'] = (string) $fethed_user->children('foaf', true)->Person->
+                                                                            children('foaf', true)->icqChatID;
+                        //Biography
+                        $this->users[$user]['bio'] = (string) $fethed_user->children('foaf', true)->Person->
+                                                                            children('ya', true)->bio;
+                        //School (date start, date finish, school name)          
+                        if($fethed_user->children('foaf', true)->Person->children('ya', true)->school &&
+                        $fethed_user->children('foaf', true)->Person->children('ya', true)->school->
+                                        attributes()) { 
+                            $attr = $fethed_user->children('foaf', true)->Person->children('ya', true)->school->
+                                            attributes('ya', true);
+                            $this->users[$user]['school']['date_start'] = (string) $attr['dateStart'];
+                            $this->users[$user]['school']['date_finish'] = (string) $attr['dateFinish'];
+                        }
+                        if($fethed_user->children('foaf', true)->Person->children('ya', true)->school &&
+                        $fethed_user->children('foaf', true)->Person->children('ya', true)->school->
+                                        attributes()) {
+                            $attr = $fethed_user->children('foaf', true)->Person->children('ya', true)->school->
+                                            attributes('dc', true);
+                            $this->users[$user]['school']['name'] = (string) $attr['title'];
+                        } 
                 }
-                //Country                
-                if($fethed_user->children('foaf', true)->Person->children('ya', true)->country &&
-                   $fethed_user->children('foaf', true)->Person->children('ya', true)->country->
-                                 attributes()) {
-                    $attr = $fethed_user->children('foaf', true)->Person->children('ya', true)->country->
-                                      attributes('dc', true);
-                    $this->users[$user]['country'] = (string) $attr['title'];
-                }
-                //City
-                if($fethed_user->children('foaf', true)->Person->children('ya', true)->city &&
-                   $fethed_user->children('foaf', true)->Person->children('ya', true)->city->
-                                 attributes()) {
-                    $attr = $fethed_user->children('foaf', true)->Person->children('ya', true)->city->
-                                      attributes('dc', true);
-                    $this->users[$user]['city'] = (string) $attr['title'];
-                }
-                //Date of birth                
-                $this->users[$user]['date_of_bitrh'] = (string) $fethed_user->children('foaf', true)->Person->
-                                                                              children('foaf', true)->dateOfBirth;
-                //User image URL
-                if($fethed_user->children('foaf', true)->Person->children('foaf', true)->img &&
-                   $fethed_user->children('foaf', true)->Person->children('foaf', true)->img->
-                                 attributes()) {
-                        $attr = $fethed_user->children('foaf', true)->Person->children('foaf', true)->img->
-                                      attributes('rdf', true);
-                        $this->users[$user]['img'] = (string) $attr['resource'];
-                }
-                //ICQ
-                $this->users[$user]['icq'] = (string) $fethed_user->children('foaf', true)->Person->
-                                                                    children('foaf', true)->icqChatID;
-                //Biography
-                $this->users[$user]['bio'] = (string) $fethed_user->children('foaf', true)->Person->
-                                                                    children('ya', true)->bio;
-                //School (date start, date finish, school name)          
-                if($fethed_user->children('foaf', true)->Person->children('ya', true)->school &&
-                   $fethed_user->children('foaf', true)->Person->children('ya', true)->school->
-                                 attributes()) { 
-                    $attr = $fethed_user->children('foaf', true)->Person->children('ya', true)->school->
-                                      attributes('ya', true);
-                    $this->users[$user]['school']['date_start'] = (string) $attr['dateStart'];
-                    $this->users[$user]['school']['date_finish'] = (string) $attr['dateFinish'];
-                }
-                if($fethed_user->children('foaf', true)->Person->children('ya', true)->school &&
-                   $fethed_user->children('foaf', true)->Person->children('ya', true)->school->
-                                 attributes()) {
-                    $attr = $fethed_user->children('foaf', true)->Person->children('ya', true)->school->
-                                      attributes('dc', true);
-                    $this->users[$user]['school']['name'] = (string) $attr['title'];
-                } 
             } 
             
             return $this->users[$user];
