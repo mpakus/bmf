@@ -1,5 +1,5 @@
 <?php
-    class LivejournalController extends MY_Controller {
+    class LivejournalController extends MY_Module {
      
      	protected
      		$view = 'livejournal/'
@@ -8,10 +8,10 @@
         /**
          * Constructor 
          */
-    	public function _construct()
+    	public function __construct()
     	{
-			parent::_construct();
-			user_can_rule();
+			parent::__construct( 'livejournal' );
+                        user_can_rule();
 	}
 
         /**
@@ -23,10 +23,10 @@
 			$this->load->library( array('form_validation','session') );
 			$this->load->model( array('post','tag','module','user','comment') );
 
-			//N last posts from LJ
-			$nlast = 10;
+                        //N last posts from LJ
+			$nlast = $this->settings['nlast'];
                         //Import comments
-                        $comments = true;
+                        $comments = $this->settings['comments'];
 			//Before date
 			$beforedate = '';
 			//Posts count
@@ -73,8 +73,9 @@
 					);
                                         
                                         //Adding the comments
-                                        foreach($lj_post['comments'] as $comment)
-                                            $this->add_comment($post_id, $comment);
+                                        if(!empty($lj_post['comments']))
+                                            foreach($lj_post['comments'] as $comment)
+                                                $this->add_comment($post_id, $comment);
                                         
                                         //Incrementing current posts count and saving beforedate param
 					$nposts++; 
@@ -88,7 +89,7 @@
                                             'ntotal' => ($this->session->userdata('ntotal') + $nposts)
                                         ));
                                      
-					redirect(current_url());
+					$this->data['redirect'] = true; //redirect(current_url());
                                         
 				} else {
 					
@@ -139,7 +140,7 @@
                                                             'ntotal' => 0
                                                         ));
                                                         
-                                                        redirect(current_url());
+                                                        $this->data['redirect'] = true; //redirect(current_url());
 						                                                        
                                                 } else {
 							$this->data['lj_authorized'] = false;
@@ -219,10 +220,6 @@
                         $user_id = $this->get_user_id($i_comment['postername']);
                     else
                         $user_id = $this->get_user_id('anonymous');
-                    
-                    /**
-                     *@todo Поставить проверки на юзера, id шники и т д.  
-                     */
                     
                     //Add comment
                     $comment = array(
