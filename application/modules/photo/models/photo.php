@@ -22,5 +22,7 @@ class Photo extends MY_Model{
         if( !empty($data[$this->pkey]) ) $this->delete( $data[$this->pkey] );                
                 $this->insert($data);
     }
+    
+    
  
 }

@@ -2,24 +2,16 @@
 
 class PhotoController extends MY_Module{
     protected
-        $view = 'photo/'
+        $view = 'photo/',
+        $path = '/files/photo'
     ;
     
     public function __construct(){
-        parent::__construct();
+        parent::__construct( 'photo' );
         user_can_rule();
         $this->load->model( array('photo','module') );
-        $this->photo->file_dir = FCPATH.'/files/photo/';
-    }
-    
-    /**
-     * Dummy index method (will be remove in future, just for test) 
-     */
-    public function index()
-    {
-        $this->data['post_id'] = 53;
-        //$this->data['module_id'] = 53;
-        $this->template->render( $this->view . 'form', $this->data );
+        $this->load->library( array('thumb_lib') );
+        $this->photo->file_dir = FCPATH.$path;
     }
     
     /**
@@ -30,7 +22,8 @@ class PhotoController extends MY_Module{
      */    
     public function show(){
         if( !empty($this->module_id) ){
-            $this->data['text'] = $this->photo->find( $this->module_id, 1 );
+            $this->data['photo'] = $this->photo->find( $this->module_id, 1 );
+            $this->data['photo_path'] = site_url($this->path);
             return $this->template->render( $this->view.'show', $this->data );
         }else{
             return '--- empty ---';
@@ -49,22 +42,18 @@ class PhotoController extends MY_Module{
     }
     
     /**
-     * Method saves the picture in post $post_id
+     * Method saves the picture in post $post_id, module $module_id
      * 
      * @param number $post_id
+     * @param number $module_id
      */
-    public function save( $post_id ){
+    public function save( $post_id, $module_id ){
         
-        // Uploading an image file
-        if( !empty($_FILES['image']) )
-            $this->photo->upload( 'image' );
-        
-        // Creating new module
-        $module = array(
-            'post_id' => $post_id,
-            'name'    => 'photo'
-        );
-        $module_id = $this->module->add_new( $module );
+        // Uploading an image file & resize
+        if( !empty($_FILES['image']) ) {
+            $upload = $this->photo->upload( 'image' );
+            $this->resize( $this->photo->file_dir . $upload->file_name );
+        }
         
         // Filling up the photo data and save them into DB
         $photo = array(
@@ -76,6 +65,19 @@ class PhotoController extends MY_Module{
         
         set_flash_ok('Картиночка сохранена');
         redirect( 'post/form/'.$post_id.'/'.$module_id.'#mod-'.$module_id );
+    }
+    
+    /**
+     *  Resizing an image
+     * 
+     * @param string $image 
+     */
+    protected function resize( $image )
+    {
+        // Creating thumbnail object
+        $thumb = $this->thumb_lib->create( $image );
+        $thumb->resize( $this->settings['max_width'] );
+        $thumb->save( $image );
     }
     
     /**

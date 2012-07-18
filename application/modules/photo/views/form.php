@@ -1,15 +1,8 @@
-<?/*= form_open_multipart( 'photo/save/'.$post_id.'/'.$module_id, 'class="well form-inline"' )*/ ?>
-<?php 
-    var_dump($post_id);
-    var_dump($module_id);
-    echo form_open_multipart( 'photo/save/'.$post_id.'/'.$module_id, 'class="well form-inline"' );
-    
-?>
-
+<?= form_open_multipart( 'photo/save/'.$post_id.'/'.$module_id, 'class="well form-inline"' ) ?>
     <div class="error"><?php echo validation_errors(); ?></div>
     <label>Название:</label>
     <input type="text" name="alt" value="<?= form_prep($alt) ?>" />
     <br/>
     <input type="file" name="image" class="input-xlarge" />
     <div class="controlls"><input type="submit" class="btn btn-success" value="Загрузить" /></div>
-<?= form_close(); die; ?>
+<?= form_close(); ?>
