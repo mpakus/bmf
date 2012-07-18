@@ -1,3 +1,6 @@
 <p>
-    <?= nl2br('<img src="' . $photo_path . $photo['image'] . '">' . $photo['alt'] .'</img>'); ?>
+    <?php
+        if (!empty( $photo ))
+            echo '<img src="'.$photo_path.'/'.$photo['image'].'" alt="'.$photo['alt'].'" />';
+    ?>
 </p>

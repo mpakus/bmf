@@ -1,9 +1,10 @@
 <?php
 
 class PhotoController extends MY_Module{
+    
     protected
         $view = 'photo/',
-        $path = '/files/photo'
+        $path = 'files/photo'
     ;
     
     public function __construct(){
@@ -11,7 +12,7 @@ class PhotoController extends MY_Module{
         user_can_rule();
         $this->load->model( array('photo','module') );
         $this->load->library( array('thumb_lib') );
-        $this->photo->file_dir = FCPATH.$path;
+        $this->photo->file_dir = FCPATH.$this->path;
     }
     
     /**
@@ -37,7 +38,7 @@ class PhotoController extends MY_Module{
      * @return type 
      */
     public function form(){
-        $this->data['text'] = $this->photo->find( $this->module_id, 1 );
+        $this->data['photo'] = $this->photo->find( $this->module_id, 1 );
         return $this->template->render( $this->view.'form', $this->data );
     }
     
@@ -52,7 +53,14 @@ class PhotoController extends MY_Module{
         // Uploading an image file & resize
         if( !empty($_FILES['image']) ) {
             $upload = $this->photo->upload( 'image' );
-            $this->resize( $this->photo->file_dir . $upload->file_name );
+            
+            $image = $this->photo->file_dir . '/' . $upload->file_name;
+            
+            // Creating thumbnail object
+            $thumb = $this->thumb_lib->create( $image );
+            $thumb->resize( $this->settings['max_width'] );
+            $thumb->save( $image );
+                    
         }
         
         // Filling up the photo data and save them into DB
@@ -64,20 +72,8 @@ class PhotoController extends MY_Module{
         $this->photo->save( $photo ); 
         
         set_flash_ok('Картиночка сохранена');
+        
         redirect( 'post/form/'.$post_id.'/'.$module_id.'#mod-'.$module_id );
-    }
-    
-    /**
-     *  Resizing an image
-     * 
-     * @param string $image 
-     */
-    protected function resize( $image )
-    {
-        // Creating thumbnail object
-        $thumb = $this->thumb_lib->create( $image );
-        $thumb->resize( $this->settings['max_width'] );
-        $thumb->save( $image );
     }
     
     /**
@@ -87,8 +83,18 @@ class PhotoController extends MY_Module{
      * @param number $module_id
      */
     public function delete( $post_id='', $module_id='' ){
+        
         if( empty($module_id) ) $module_id = $this->data['module_id'];                
-        $this->text->delete( $module_id );
+        
+        // Find the photo
+        $photo = $this->photo->find( $module_id,1  );
+        
+        // Delete the photo from DB
+        $this->photo->delete( $module_id );
+        
+        // Delete related file
+        unlink($this->photo->file_dir.'/'.$photo['image']);
+
         return TRUE;
     }
 }
