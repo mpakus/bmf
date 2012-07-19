@@ -4,7 +4,7 @@ class PhotoController extends MY_Module{
     
     protected
         $view = 'photo/',
-        $path = 'files/photo'
+        $path = 'files/photo/'
     ;
     
     public function __construct(){
@@ -24,7 +24,7 @@ class PhotoController extends MY_Module{
     public function show(){
         if( !empty($this->module_id) ){
             $this->data['photo'] = $this->photo->find( $this->module_id, 1 );
-            $this->data['photo_path'] = site_url($this->path);
+            $this->data['photo_path'] = site_url( $this->path );
             return $this->template->render( $this->view.'show', $this->data );
         }else{
             return '--- empty ---';
@@ -39,6 +39,7 @@ class PhotoController extends MY_Module{
      */
     public function form(){
         $this->data['photo'] = $this->photo->find( $this->module_id, 1 );
+        $this->data['photo_path'] = site_url( $this->path );
         return $this->template->render( $this->view.'form', $this->data );
     }
     
@@ -52,26 +53,33 @@ class PhotoController extends MY_Module{
         
         // Uploading an image file & resize
         if( !empty($_FILES['image']) ) {
-            $upload = $this->photo->upload( 'image' );
             
-            $image = $this->photo->file_dir . '/' . $upload->file_name;
+            // если есть изображение пробуем загрузить, откорректировать и сделать превью
+            try {
+                $this->photo->upload('image')->resize_image( array(
+                                                'width'=>$this->settings['max_width'], 
+                                                'height'=>$this->settings['max_height'], 
+                                                'adaptive'=>TRUE
+                ));
+                
+                $data['image'] = $this->photo->file_name;
+                
+                $data['alt'] = param('alt');
+                $data['module_id'] = $module_id;
+                $this->photo->save( $data ); 
+
+                set_flash_ok('Картиночка сохранена');
+                
+            } catch( Exception $e ) {
+                
+                set_flash_ok('Ошибка во время сохранения изображения!');
+                var_dump($e);
+                die;
+            }
             
-            // Creating thumbnail object
-            $thumb = $this->thumb_lib->create( $image );
-            $thumb->resize( $this->settings['max_width'] );
-            $thumb->save( $image );
+
                     
         }
-        
-        // Filling up the photo data and save them into DB
-        $photo = array(
-            'module_id' => $module_id,
-            'alt' => param('alt'),
-            'image' => $this->photo->file_name             
-        );
-        $this->photo->save( $photo ); 
-        
-        set_flash_ok('Картиночка сохранена');
         
         redirect( 'post/form/'.$post_id.'/'.$module_id.'#mod-'.$module_id );
     }
@@ -86,14 +94,9 @@ class PhotoController extends MY_Module{
         
         if( empty($module_id) ) $module_id = $this->data['module_id'];                
         
-        // Find the photo
-        $photo = $this->photo->find( $module_id,1  );
-        
-        // Delete the photo from DB
+        // Delete the photo from DB and delete the file
+        $this->photo->delete_file( 'image', $module_id );
         $this->photo->delete( $module_id );
-        
-        // Delete related file
-        unlink($this->photo->file_dir.'/'.$photo['image']);
 
         return TRUE;
     }
