@@ -1,3 +1,3 @@
 <p>
-    <?= nl2br($text['full']) ?>
+    <?= nl2br($text['original']) ?>
 </p>
