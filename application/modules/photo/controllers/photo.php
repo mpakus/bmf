@@ -72,9 +72,9 @@ class PhotoController extends MY_Module{
                 
             } catch( Exception $e ) {
                 
-                set_flash_ok('Ошибка во время сохранения изображения!');
-                var_dump($e);
-                die;
+                log_message( 'error', $e->code . ' : ' . $e->message );
+                set_flash_ok('Ошибка во время сохранения изображения!');                
+                
             }
             
 
