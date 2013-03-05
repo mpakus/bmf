@@ -66,9 +66,9 @@ $db['production']['stricton'] = FALSE;
 
 
 $db['development']['hostname'] = 'localhost';
-$db['development']['username'] = 'bmf';
-$db['development']['password'] = 'bmf';
-$db['development']['database'] = 'bmf';
+$db['development']['username'] = 'root';
+$db['development']['password'] = '900';
+$db['development']['database'] = 'myblog';
 $db['development']['dbdriver'] = 'mysql';
 $db['development']['dbprefix'] = '';
 $db['development']['pconnect'] = TRUE;

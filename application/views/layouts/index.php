@@ -2,7 +2,7 @@
 <html lang="ru">
     <head>
         <meta charset="utf-8">
-        <title>BMF - blogs management framework - <?= not_empty($page['title'], '') ?></title>
+        <title>Blogging framework - <?= not_empty($page['title'], '') ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -50,9 +50,9 @@
                     <a class="brand" href="/">BMF</a>
                     <div class="nav-collapse">
                         <ul class="nav">
-                            <li class="active"><a href="/">Blog</a></li>
-                            <li><a href="/page/about">About</a></li>
-                            <li><a href="/page/contact">Contact</a></li>
+                            <li class="active"><a href="/">Главная</a></li>
+                            <li><a href="/page/about">О блоге</a></li>
+                            <li><a href="/page/help">Помощь</a></li>
                         </ul>
                     </div>
                     
@@ -73,49 +73,20 @@
 
         <div class="container">
             <?= $content ?>
-<!-- 
-            <div class="hero-unit">
-                <h1>Hello, world!</h1>
-                <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-                <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-            </div>
-
-            <div class="row">
-                <div class="span4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
-                </div>
-                <div class="span4">
-                    <h2>Heading</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
-                </div>
-                <div class="span4">
-                    <h2>Heading</h2>
-                    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                    <p><a class="btn" href="#">View details &raquo;</a></p>
-                </div>
-            </div>
--->
             <hr>
-
             <footer>
-                <p>&copy; <a href="http://aomega.ru">AOmega.ru</a> 2012</p>
+                <p>&copy; <a href="http://aomega.ru">AOmega.ru</a> 2013</p>
             </footer>
         </div>
 
         <script type="text/javascript" src="<?= site_url('static/bootstrap/js/bootstrap.min.js') ?>"></script>
         <script type="text/javascript">
             $(function() {
-                hljs.initHighlightingOnLoad();  // source code highlighter
+                hljs.initHighlightingOnLoad();
                 $('a.delete').click( BMF.Post.destroy );
 
                 $('a.delcomment').click( BMF.Comment.destroy );
                 $('a.reply').click( BMF.Comment.reply );
-//
-//                $('#select_comments').click( AC.Sidebar.show_comments );
-//                $('#select_reviews').click( AC.Sidebar.show_reviews );
             });
         </script>
     </body>
