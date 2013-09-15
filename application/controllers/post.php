@@ -41,7 +41,7 @@ class PostController extends MY_Controller {
         if (!empty($id) AND empty($_POST)) {
             $this->data['post'] = $this->post->find($id, 1);
         } else {
-            $post = params(array('title', 'tags', 'category_id',));
+            $post = params(array('title', 'description', 'tags', 'category_id',));
             $post['id'] = $id;
             $this->data['data'] = $post;
         }
@@ -66,7 +66,8 @@ class PostController extends MY_Controller {
             $this->data['modules_for_add'] = $this->settings['modules'];
             if( !empty($id) ){
                 $this->data['modules'] = $this->module->find_all_for_post( $id );
-                $this->call_modules( $id, $module_id );
+                $post = $this->post->find( $id, 1 );
+                $this->call_modules( $post, $module_id );
             }
             $this->template->render_to('content', $this->view . 'form', $this->data);
         } else {
@@ -108,42 +109,43 @@ class PostController extends MY_Controller {
         $current_user = current_user();
         $post = $this->post->find( $post_id, 1 );
         if( empty($post) ) throw new Exception('Такого топика у нас нет');
-        $post = array(
-            'id' => $post['id']
-        );
-        $this->call_modules( $post_id );
+        
+        // $post = array( 'id' => $post['id'] );
+        $this->call_modules( $post );
+
         $post['cut'] = $post['full'] = '';
-        $saw_cut = FALSE;
+        $this->template->set( 'post', $post );
+
+        $saw_cut = FALSE;        
         foreach( $this->data['modules'] as $i=>$module ){
             if( $module['name'] == 'cut' ){
+                $post['cut'] .= $module['output'];
                 $saw_cut = TRUE;
                 continue;
             }
-            if( !$saw_cut ){
-                $post['cut'] .= $module['output'];
-            }
+            if( !$saw_cut ) $post['cut'] .= $module['output'];            
             $post['full'] .= $module['output'];
         }
         return $post;
     }
     
     public function draft( ){
-        
     }
+
     /**
      *
      * @param type $post_id
      * @param type $module_id
      * @return type 
      */
-    protected function call_modules( $post_id, $module_id='' ){
-        if( empty($this->data['modules']) ){
-            $this->data['modules'] = $this->module->find_all_for_post( $post_id );
-        }
+    protected function call_modules( $post, $module_id='' ){
+        if( empty($this->data['modules']) ) $this->data['modules'] = $this->module->find_all_for_post( $post['id'] );
+        
         foreach( $this->data['modules'] as $i=>$module ){
-            $name = $module['name'];
+            $name   = $module['name'];
             $method = ($module['id'] == $module_id) ? 'form' : 'show';
-            Modules::run( $name.'/set_params', $post_id, $module['id'] );
+            Modules::run( $name.'/set_params', $post['id'], $module['id'] );
+            Modules::run( $name.'/set_params', $post );
             $this->data['modules'][$i]['output'] = Modules::run( $name.'/'.$method );
         }
         return $this->data['modules'];
@@ -151,6 +153,9 @@ class PostController extends MY_Controller {
     
     public function module_delete( $post_id, $module_id ){
         $module = $this->module->find( $module_id, 1 );
+        $post = $this->post->find( $post_id, 1 );
+        user_can_rule( $post );
+        
         if( empty($module) ){
             set_flash_error( 'Не удалось найти этот модуль' );
             redirect( 'post/form/'.$post_id );
@@ -161,7 +166,7 @@ class PostController extends MY_Controller {
         
         $this->module->delete( $module_id );
         set_flash_ok( 'Блок успешно удалён' );
-        redirect( 'post/form/'.$post_id.'/'.$module_id );
+        redirect( post_form_save_path( $post, $module_id) );
     }
 
     /**
@@ -208,7 +213,7 @@ class PostController extends MY_Controller {
             $text['short'] = mb_strcut(strip_tags_regular($text['full']), 0, 250);
             $this->text->save($text);
             set_flash_ok($msg);
-            redirect(post_link($post));
+            redirect( post_link($post) );
         }
         return $this;
     }
@@ -260,7 +265,7 @@ class PostController extends MY_Controller {
         $post = $this->post->find($id, 1);
         // who is author?
         if (!user_is('admin') AND ($post['user_id'] != $this->current_user['id']))
-            return $this->ajax(array('error' => 'Увы, вы можете только удалять свои топики'));
+            return $this->ajax(array('error' => 'Вы можете удалять только свои топики'));
         // mark it as deleted
         $this->post->save(array('id' => $id, 'deleted' => 1));
 

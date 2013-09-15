@@ -6,7 +6,7 @@
  *
  * @version 1.0
  * @author Ibragimov "MpaK" Renat <info@mrak7.com>
- * @copyright Copyright (c) 2010-2012, <http://aomega.ru>
+ * @copyright Copyright (c) 2010-2013, <http://aomega.ru>
  */
 class Asset{
     static protected
@@ -42,17 +42,6 @@ class Asset{
             }
         }
         return TRUE;
-    }
-
-    /**
-     *  Вставляет CSSки раньше всех других
-     *
-     * @param  string $file
-     * @param  string $module
-     * @return bool
-     */
-    static public function insert_before_css( $file, $module='' ) {
-        return self::add_css( $file, $module, TRUE );
     }
 
     /**
@@ -105,7 +94,11 @@ class Asset{
                     $buffer = '';
                     foreach( self::$js_container as $file ){
                         $rp = realpath(FCPATH.$file);
-                        if( file_exists($rp) ) $buffer .= "\n/*--- $file --- */\n".file_get_contents( $rp );
+                        if( file_exists($rp) ){
+                            $buffer .= "\n/*--- $file --- */\n".file_get_contents( $rp );
+                        }else{
+                            @$buffer .= "\n/*--- $file --- */\n".file_get_contents( $file );                            
+                        }
                     }
                     file_put_contents($cache_file, $buffer);
                     unset($buffer);
@@ -142,6 +135,16 @@ class Asset{
         return TRUE;
     }
 
+    /**
+     *  Вставляет CSSки раньше всех других
+     *
+     * @param  string $file
+     * @param  string $module
+     * @return bool
+     */
+    static public function insert_before_css( $file, $module='' ) {
+        return self::add_css( $file, $module, TRUE );
+    }
     /**
      * Добавляет в накопитель одиночный CSS файл
      *
@@ -180,11 +183,17 @@ class Asset{
                     $buffer = '';
                     foreach( self::$css_container as $file ){
                         $rp = realpath(FCPATH.$file);
-                        if( file_exists($rp) ) $buffer .= "\n/*--- $file --- */\n".file_get_contents( $rp );
+                        if( file_exists($rp) ) {
+                            $buffer .= "\n/*--- $file --- */\n".file_get_contents( $rp );
+                        }else{
+                            @$buffer .= "\n/*--- $file --- */\n".file_get_contents( $file );                            
+                        }
                     }
                     file_put_contents($cache_file, $buffer);
                     unset($buffer);
                     $out = self::content_tag_one( 'link', 'rel="stylesheet" href="'.$cache_url.'" type="text/css" media="all"' );
+                }else{
+                    echo "fuck";
                 }
             }else{
                 foreach( self::$css_container as $file ){

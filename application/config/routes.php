@@ -48,6 +48,7 @@ $route['user/(:any)'] = "user/$1";
 
 // BLOG
 $route['page/(:any)']             = "page/index/$1";
+$route['blog/feed.rss']           = "blog/feed";
 $route['blog/tag/(:any)']         = "blog/tag/$1";
 $route['blog/(:num)-(:any).html'] = "blog/show/$1/$2";
 $route['blog/page/(:num)']        = "blog/news/$1";

@@ -1,6 +1,9 @@
 <?php
 
 class CutController extends MY_Module{
+    protected
+        $view = 'cut/'
+    ;
     
     public function __construct(){
         parent::__construct();
@@ -14,7 +17,7 @@ class CutController extends MY_Module{
      * @return type 
      */    
     public function show(){
-        return '<hr/';
+        return $this->template->render( $this->view.'show', $this->data );
     }
     
     /**

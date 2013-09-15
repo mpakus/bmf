@@ -6,7 +6,7 @@
  * @version $Id
  * @access ALL
  * @author Ibragimov "MpaK" Renat <info@mrak7.com>
- * @copyright Copyright (c) 2009-2012, AOmega.ru
+ * @copyright Copyright (c) 2009-2013, AOmega.ru
  */
 class Module extends MY_Model {
     protected
@@ -35,9 +35,27 @@ class Module extends MY_Model {
         $this->db->trans_complete();
         return $id;
     }
+
+    /**
+     * Update modules order
+     *
+     * @param array $post_modules - ordered modules ids
+     */
+    public function resort( $post_modules ){
+        /*Array[3]
+        0 => "5"
+        1 => "112"
+        2 => "111"
+        */
+        $this->db->trans_start();
+        foreach( $post_modules as $ord => $id )
+            $this->db->where('id', $id)->update( $this->table, array('ord'=>$ord+1) );
+        $this->db->trans_complete();
+        return $this->db->trans_status();
+    }    
     
     public function find_all_for_post( $post_id ){
-        return $this->where( 'post_id', $post_id )->find();
+        return $this->where( 'post_id', $post_id )->order_by('ord', 'asc')->find();
     }
 
 }

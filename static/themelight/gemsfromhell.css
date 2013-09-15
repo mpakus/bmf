@@ -1,0 +1,81 @@
+#login img{ width: 32px; margin: 6px; }
+
+*{
+    font-family: sans-serif, Verdana, Tahoma;
+}
+
+/** Base **/
+a{ color: #666; text-decoration: underline; cursor: pointer; cursor: hand;}
+a:hover{ color: #000; cursor: hand; }
+a.btn{ text-decoration: none; }
+.btn-primary{
+    background: #AD0010;
+    background-image: linear-gradient(to bottom,#db1480,#AD0010);
+}
+.btn-primary:hover{
+    background: #AD0010;    
+    background-image: linear-gradient(to top,#db1480,#AD0010);
+}
+
+/** Head **/
+a.brand{
+    font-family: 'Denk One', sans-serif;
+    text-decoration: none;
+    font-size: 31px !important;
+    color: #db1480 !important;
+}
+img.mini{
+    border-radius: 50%;
+    border: 3px solid #DDD;
+}
+a.rss{ color: #db1480 !important; }
+.nav-avatar > a{ margin:0 !important; padding:0 !important;}
+
+/** Post **/
+.post h2 a, .post h1{
+    font-family: 'PT Sans Narrow', sans-serif;
+    color: #333;
+    font-size: 25px;
+}
+.post pre{
+    background: none;
+    border: none;
+    padding: 0;
+}
+.post .author{
+    width: 94px;
+    float: right;
+    text-align: center;
+    color: #999;
+    font-style: italic;
+    font-size: 10px;
+}
+.post .author .avatar{ margin-bottom: 5px; }
+
+.post > .tags{ margin-top: 10px;}
+.post > .tags a{
+    text-decoration: none;
+    color: #FFF;
+    background: #db1480;
+    display: inline-block;
+    padding: 1px 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.post > .tags a:hover{ background: #333; }
+
+/** Profile **/
+.avatar{
+    margin: 0 auto;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border: 3px solid #DDD;
+    margin: 10px;
+    float: left;
+}
+
+.footer{
+    line-height: 40px;
+}

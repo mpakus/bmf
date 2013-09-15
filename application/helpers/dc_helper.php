@@ -390,7 +390,7 @@ function prepare_text( $text ){
     CI()->load->library('jevix');
 
     // 1. Устанавливаем разрешённые теги. (Все не разрешенные теги считаются запрещенными.)
-    CI()->jevix->cfgAllowTags(array('a', 'img', 'i', 'b', 'u', 'em', 'strong', 'nobr', 'li', 'ol', 'ul', 'sup', 'abbr', 'pre', 'acronym', 'h3', 'h2', 'h4', 'h5', 'h6', 'adabracut', 'br', 'code'));
+    CI()->jevix->cfgAllowTags(array('a', 'img', 'i', 'b', 'u', 'em', 'strong', 'nobr', 'li', 'ol', 'ul', 'sup', 'abbr', 'pre', 'acronym', 'h1', 'h3', 'h2', 'h4', 'h5', 'h6', 'adabracut', 'br', 'code'));
 
     // 2. Устанавливаем коротие теги. (не имеющие закрывающего тега)
     CI()->jevix->cfgSetTagShort(array('br','img'));
@@ -399,7 +399,7 @@ function prepare_text( $text ){
     CI()->jevix->cfgSetTagPreformatted(array('pre'));
 
     // 4. Устанавливаем теги, которые необходимо вырезать из текста вместе с контентом.
-    CI()->jevix->cfgSetTagCutWithContent(array('script', 'object', 'iframe', 'style'));
+    // CI()->jevix->cfgSetTagCutWithContent(array('script', 'object', 'iframe', 'style'));
 
     // 5. Устанавливаем разрешённые параметры тегов. Также можно устанавливать допустимые значения этих параметров.
     CI()->jevix->cfgAllowTagParams('a', array('title', 'href'));
@@ -430,7 +430,7 @@ function prepare_text( $text ){
     CI()->jevix->cfgSetAutoBrMode(TRUE);
 
     // 12. Включаем или выключаем режим автоматического определения ссылок. (по умолчанию включен)
-    CI()->jevix->cfgSetAutoLinkMode(true);
+    CI()->jevix->cfgSetAutoLinkMode(TRUE);
 
     // 13. Отключаем типографирование в определенном теге
     CI()->jevix->cfgSetTagNoTypography('code');

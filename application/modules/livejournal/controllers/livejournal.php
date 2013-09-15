@@ -1,4 +1,7 @@
 <?php
+
+exit; // not ready yet
+
     class LivejournalController extends MY_Module {
      
      	protected

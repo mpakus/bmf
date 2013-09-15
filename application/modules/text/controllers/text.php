@@ -23,7 +23,7 @@ class TextController extends MY_Module{
             $this->data['text'] = $this->text->find( $this->module_id, 1 );
             return $this->template->render( $this->view.'show', $this->data );
         }else{
-            return '--- empty ---';
+            return '';
         }
     }
     
@@ -48,7 +48,7 @@ class TextController extends MY_Module{
         $data['original'] = param('original', TRUE, FALSE);
         $this->text->save( $data ); // keep in safe place ;)
         set_flash_ok('Текст сохранён');
-        redirect( 'post/form/'.$post_id.'/'.$module_id.'#mod-'.$module_id );
+        redirect( 'post/form/'.$post_id.'#mod-'.$module_id );
     }
     
     /**

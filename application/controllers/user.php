@@ -6,7 +6,7 @@
  *
  * @version 1.0
  * @author Ibragimov "MpaK" Renat <info@mrak7.com>
- * @copyright Copyright (c) 2009-2012, AOmega.ru
+ * @copyright Copyright (c) 2009-2013, AOmega.ru
  */
 class UserController extends MY_Controller {
     protected
@@ -39,6 +39,12 @@ class UserController extends MY_Controller {
         $this->load->library('form_validation');
         if( $_POST ){
             $config = array(
+                // @todo: add uniq validation to LOGIN
+               // array(
+               //       'field'   => 'email',
+               //       'label'   => 'E-mail',
+               //       'rules'   => 'required|max_length[128]|valid_email|trim'
+               // ),
                array(
                      'field'   => 'email',
                      'label'   => 'E-mail',
@@ -124,6 +130,7 @@ class UserController extends MY_Controller {
      * @return void
      */
     public function register(){
+        exit; // not yet
         $data = array();
 
         $this->load->helper('captcha');

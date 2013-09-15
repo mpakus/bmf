@@ -8,7 +8,7 @@ function tags( $post ){
         $tag = trim($tag);
         $out[] = '<a href="'.site_url( 'blog/tag/'.$tag ).'">'.$tag.'</a>';
     }
-    return implode( ', ', $out );
+    return implode( ' ', $out );
 }
 
 function avatar( $post ){
@@ -75,19 +75,33 @@ function post_control( $post ){
     
     if( user_is('admin') OR ($user['id'] == $post['user_id']) ){
         ?>
-        <div class="btn-toolbar">
-            <a href="<?= site_url( 'post/form/'.$post['id'] ) ?>" class="btn btn-success"><i class="icon-pencil icon-white"></i> Редактировать</a>
-            <a href="#" class="btn btn-danger delete" id="destroy-<?= $post['id'] ?>"><i class="icon-trash icon-white"></i> Удалить</a>
-        </div>
+        <span class="post-control">
+            <a href="<?= site_url( 'post/form/'.$post['id'] ) ?>"  title="Редактировать"><i class="icon-pencil"></i></a>
+            <a href="#" class="delete" id="destroy-<?= $post['id'] ?>" title="Удалить"><i class="icon-trash"></i></a>
+        </span>
         <?
     
     }
 }
 
+function post_form_path( $post, $module_id='' ){
+    return site_url( 'post/form/'.$post['id'].'/'.$module_id );    
+}
+function post_form_save_path( $post, $module_id='' ){
+    return site_url( 'post/form/'.$post['id'].'#mod-'.$module_id );    
+}
+
+function blog_post_path( $post ){
+    return site_url( 'blog/post/'.$post['id'] );
+}
+function edit_blog_post_path( $post, $module_id ){
+    return site_url( 'blog/post/'.$post['id'].'/'.$module_id.'#mod-'.$module_id );
+}
+
 function post_link( $post ){
     $type = array_search( $post['type'], blog_types() );
-    $alias = nice_title( $post['title'] );
-    return site_url( 'blog/show/'.$post['id'].'.html' );
+    $alias = form_prep( nice_title( $post['title'] ) );
+    return site_url( 'blog/show/'.$post['id'].'-'.$alias.'.html' );
 }
 
 

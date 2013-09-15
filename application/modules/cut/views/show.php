@@ -1,0 +1,1 @@
+<a href="<?= post_link( $post ) ?>" class="read-more">Подробнее&hellip;</a>

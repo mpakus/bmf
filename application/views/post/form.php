@@ -3,7 +3,6 @@
     <?= form_open_multipart(current_url(), array('id' => 'post_form', 'class'=>'well form-horizontal')) ?>
     <fieldset>
         <legend>Свойства топика</legend>
-        <hr/>
         <div class="error"><?php echo validation_errors(); ?></div>
         <div class="control-group">
             <label class="control-label">Заголовок топика:</label>
@@ -12,13 +11,16 @@
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label">Тэги через запятую:</label>
+            <label class="control-label">Описание (meta):</label>
             <div class="controls">
-                <input type="text" class="input-xlarge"  id="tags" name="tags" value="<?= form_prep($post['tags']) ?>" />
+                <input type="text" class="input-xlarge"  id="description" name="description" value="<?= form_prep($post['description']) ?>" />
             </div>
         </div>
-        <div class="controls">
-            <input type="submit" class="btn btn-primary" value="Сохранить" />
+        <div class="control-group">
+            <label class="control-label">Тэги через запятую:</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge"  id="tags" name="tags" value="<?= form_prep($post['tags']) ?>" /> <button class="btn btn-primary"><span class="icon icon-white icon-hdd"></span> Сохранить</button>
+            </div>
         </div>
     </fieldset>
     <?= form_close() ?>
@@ -28,13 +30,13 @@
 <? if( !empty($post['id']) ){ ?>
 
     <div class="row">
-        <div class="span12">        
-        <ul class="m-list">
+        <div class="span12">
+        <ul class="modules-list" id="post_blocks_list">
         <? foreach( $modules as $module ){ ?>
-            <li>
-                <a name="mod-<?= $module['id'] ?>"></a>
-                <div id="title_<?= $module['id']?>" class="row module-title">
-                    <strong><?= $module['name'] ?></strong>
+            <li class="module-li" id="post_modules_<?= $module['id']?>" data-id="<?= $module['id']?>">
+                <div id="title_<?= $module['id']?>" class="module-title">
+                    <a name="mod-<?= $module['id'] ?>"></a>
+                    <span class="icon icon-th-large sortcontrol"></span>
                     <? if( $module['id'] != $module_id ){ ?>
                         <span class="module-control">
                         <a href="<?= site_url('post/form/'.$post['id'].'/'.$module['id'].'#mod-'.$module['id'] ) ?>" class="btn btn-info"><i class="icon-pencil icon-white"></i> Редактировать</a>
@@ -43,7 +45,7 @@
                     <? } ?>
                 </div>
                 <br class="clear"/>
-                <div id="module_<?= $module['id']?>" class="row">
+                <div id="module_<?= $module['id']?>" class="module-content">
                     <?= $module['output'] ?>
                 </div>
             </li>
@@ -68,13 +70,32 @@
         </div>
     </div>
 
-<div class="row">
-    <div class="span12">
-        <div class="form-actions">
-            <a href="<?= site_url('post/publish/'.$post['id']) ?>" class="btn btn-success">Опубликовать</a>
-            <a href="<?= site_url('post/preview/'.$post['id']) ?>" class="btn" target="_blank">Предпросмотр</a>
-            <a href="<?= site_url('post/draft/'.$post['id']) ?>" class="btn btn-inverse">Сохранить в черновиках</a>
+    <div class="row">
+        <div class="span12">
+            <div class="form-actions">
+                <a href="<?= site_url('post/publish/'.$post['id']) ?>" class="btn btn-primary"><span class="icon icon-ok-circle icon-white"></span> Опубликовать</a>
+                <!--a href="<?= site_url('post/preview/'.$post['id']) ?>" class="btn" target="_blank">Предпросмотр</a>
+                <a href="<?= site_url('post/draft/'.$post['id']) ?>" class="btn btn-inverse">Сохранить в черновиках</a-->
+            </div>
         </div>
     </div>
-</div>
+
+<script type="text/javascript">
+    $(function(){        
+      $("#post_blocks_list").sortable({
+            handle: '.sortcontrol',
+            axis: 'y',
+            update: function(event, ui) {
+                var post_modules = $(this).sortable('serialize');
+                $.post(
+                    "<?= site_url('post/sort_modules/'.$post['id']) ?>",
+                    post_modules,
+                    function(data){ BMF.message_ok( data ); }
+                );
+                
+            }
+        });
+    });
+</script>
+
 <? } ?>

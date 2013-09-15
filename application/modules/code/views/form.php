@@ -1,4 +1,4 @@
-<?= form_open_multipart( 'code/save/'.$post_id.'/'.$module_id, 'class="well form-inline"' ) ?>
+<?= form_open_multipart( 'code/save/'.$post_id.'/'.$module_id, 'class="form"' ) ?>
     <div class="error"><?php echo validation_errors(); ?></div>
     <div class="control-group">
         <label>Язык:

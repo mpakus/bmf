@@ -9,6 +9,12 @@ class BlogController extends MY_Controller{
         parent::__construct( 'blog' );
         $this->load->model( array('post', 'text/text', 'tag', 'comment') );        
      }
+
+     public function feed(){
+        $this->data['posts'] = $this->post->find_published( 15, 0 ); // 15 last posts 
+        $this->output->set_content_type( 'application/rss+xml' );
+        $this->template->show( $this->view.'feed', $this->data );
+     }
     
     /**
      * Shows posts feed on main page
@@ -16,7 +22,6 @@ class BlogController extends MY_Controller{
      * @param type $page 
      */
     public function index( $page=0 ){
-
         $this->data['posts'] = $this->post->find_published( $this->settings['post_per_page'], $page );
         $this->template->render_to( 'content', $this->view.'index', $this->data );
         $this->draw();
@@ -53,18 +58,20 @@ class BlogController extends MY_Controller{
      * @param type $id
      * @param type $alias 
      */
-    public function show2( $id, $alias ){
-        $this->data['post']     = $this->post->where('deleted',0)->find( $id, 1 );
-        $this->load->helper( 'comment' );
-        $this->data['comments'] = $this->comment->find_for_post( $id );
-        $this->template->render_to( 'content', $this->view.'show', $this->data );
-        $this->draw();
-    }
+    // protected function show2( $id, $alias ){
+    //     $this->data['post']     = $this->post->where('deleted',0)->find( $id, 1 );
+    //     $this->load->helper( 'comment' );
+    //     $this->data['comments'] = $this->comment->find_for_post( $id );
+    //     $this->template->render_to( 'content', $this->view.'show', $this->data );
+    //     $this->draw();
+    // }
     
     public function show( $id ){
         $this->data['post'] = $this->post->find( $id, 1 );
-        $this->load->helper( 'comment' );
-        $this->data['comments'] = $this->comment->find_for_post( $id );
+        if( empty($this->data['post']) ) return  show_404();
+        
+        // $this->load->helper( 'comment' );
+        // $this->data['comments'] = $this->comment->find_for_post( $id );
         $this->template->render_to( 'content', $this->view.'show', $this->data );
         $this->draw();
     }
@@ -103,34 +110,34 @@ class BlogController extends MY_Controller{
      * 
      * @return type 
      */
-    public function vote(){
-        $post_id = param( 'id' );
-        if( empty($post_id) ) return $this->ajax( array('error'=>'Не указан ID топика для голосования') );
-        if( empty($this->current_user) ) return $this->ajax( array('error'=>'Извините, голосовать могут только авторизованные пользователи') );
-        $this->load->model('vote');
-        try{
-           $rating = $this->vote->voting( $post_id, $this->current_user['id'] );
-        }catch( Exception $e ){
-            return $this->ajax( array('error'=>$e->getMessage()) );            
-        }
-        $this->ajax( array('ok'=>'Ваш голос принят, спасибо', 'rating'=>$rating) );
-    }
+    // public function vote(){
+    //     $post_id = param( 'id' );
+    //     if( empty($post_id) ) return $this->ajax( array('error'=>'Не указан ID топика для голосования') );
+    //     if( empty($this->current_user) ) return $this->ajax( array('error'=>'Извините, голосовать могут только авторизованные пользователи') );
+    //     $this->load->model('vote');
+    //     try{
+    //        $rating = $this->vote->voting( $post_id, $this->current_user['id'] );
+    //     }catch( Exception $e ){
+    //         return $this->ajax( array('error'=>$e->getMessage()) );            
+    //     }
+    //     $this->ajax( array('ok'=>'Ваш голос принят, спасибо', 'rating'=>$rating) );
+    // }
     
-    public function subscribe(){
-        $email = param('email');
-        if( empty($email) ) return $this->ajax( array('error'=>'Вы забыли написать свой E-mail') );
+    // public function subscribe(){
+    //     $email = param('email');
+    //     if( empty($email) ) return $this->ajax( array('error'=>'Вы забыли написать свой E-mail') );
         
-        $this->load->model( 'mail' );
-        $mail = $this->mail->where( 'email', $email )->find( NULL, 1 );
-        if( !empty($mail) )
-                return $this->ajax( array('error'=>'Вы уже подписаны на нашу рассылку, спасибо') );
+    //     $this->load->model( 'mail' );
+    //     $mail = $this->mail->where( 'email', $email )->find( NULL, 1 );
+    //     if( !empty($mail) )
+    //             return $this->ajax( array('error'=>'Вы уже подписаны на нашу рассылку, спасибо') );
        
-        $data = array(
-            'email' => $email,
-            'added_at' => now2mysql()
-        );
-        $this->mail->save( $data );
-        $this->ajax( array('ok'=>'Спасибо, вы подписались на нашу рассылку') );        
-    }
+    //     $data = array(
+    //         'email' => $email,
+    //         'added_at' => now2mysql()
+    //     );
+    //     $this->mail->save( $data );
+    //     $this->ajax( array('ok'=>'Спасибо, вы подписались на нашу рассылку') );        
+    // }
     
 }

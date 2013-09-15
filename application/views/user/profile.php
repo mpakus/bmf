@@ -3,10 +3,9 @@
     <div class="error"><?php echo validation_errors(); ?></div>
 <? } ?>
     
-<table class="table">
-    <tr>
-        <td rowspan="9"><?= avatar( $user ) ?></td>
-    </tr>
+
+<?= avatar( $user ) ?>
+<table class="table table-bordered table-hover profile" style="width:70%">
     <tr>
         <td>Логин:</td><td><strong><?= form_prep($user['login']) ?></strong> <? if($user['banned']==1){ ?><strong class="red">(ЗАБАНЕН)</strong><? } ?></td>
     </tr>    
@@ -36,18 +35,23 @@
         }else{
         ?>
         <tr>
-            <td>E-mail:</td><td><?= safe_mailto($user['email'], 'написать письмо') ?></td>
+            <td>E-mail:</td><td><?= safe_mailto($user['email'], '<span class="icon icon-envelope"></span> написать письмо') ?></td>
         </tr>    
         <?
         }
     }
     ?>
     <tr>
-        <td>Материалов:</td><td><strong><?= form_prep($user['posts_count']) ?></strong></td>
+        <td>E-mail:</td><td><span class="icon icon-envelope"></span> <?= safe_mailto($user['email'], 'написать письмо') ?></td>
     </tr>    
     <tr>
-        <td>Комментариев:</td><td><strong><?= form_prep($user['comments_count']) ?></strong></td>
+        <td>Материалов:</td><td><strong><?= form_prep($user['posts_count']) ?></strong></td>
     </tr>    
+    <?/*
+    <tr>
+        <td>Комментариев:</td><td><strong><?= form_prep($user['comments_count']) ?></strong></td>
+    </tr>
+    */?>
 </table>
 <?
     if( is_current_user($user) OR user_is('admin') ){        

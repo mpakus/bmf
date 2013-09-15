@@ -30,6 +30,8 @@ class Post extends MY_Model {
     public function save( $post ){
         if( empty($post[$this->pkey]) ) $post['added_at']   = now2mysql();
 
+        unset( $post['login'], $post['email'], $post['avatar'], $post['banned'], $post['role'] );
+
         $post[$this->pkey] = parent::save( $post );
         
         // after that check tags, add them and link with our new post
